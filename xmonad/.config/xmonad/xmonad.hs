@@ -13,7 +13,7 @@ import Custom.MyWorkspaces (myWorkspaces)
 import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks (docks)
-import XMonad.Hooks.OnPropertyChange (onXPropertyChange)
+import XMonad.Hooks.dynamicProperty (dynamicPropertyChange)
 import XMonad.Hooks.Rescreen (rescreenHook)
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.WindowSwallowing (swallowEventHook)
@@ -22,7 +22,7 @@ import XMonad.Util.Hacks as Hacks
 import XMonad.Util.NamedScratchpad (scratchpadWorkspaceTag)
 import XMonad.Util.WorkspaceCompare
 
-myEventHook = swallowEventHook (className =? "kitty") (return True) <> onXPropertyChange "WM_NAME" myManageHook <> Hacks.windowedFullscreenFixEventHook
+myEventHook = swallowEventHook (className =? "kitty") (return True) <> dynamicPropertyChange "WM_NAME" myManageHook <> Hacks.windowedFullscreenFixEventHook
 
 main :: IO ()
 main =
@@ -33,11 +33,11 @@ main =
     $ withSB myPolybar
     $ docks
     -- . ewmhFullscreen
-    $ addEwmhWorkspaceSort (pure (filterOutWs [scratchpadWorkspaceTag]))
-      {- force XMonad to *not* set _NET_DESKTOP_VIEWPORT available since commit cf13f8f (https://github.com/xmonad/xmonad-contrib/commit/cf13f8f9)
-       - correct polybar order on dual monitors -}
-      . disableEwmhManageDesktopViewport
-      . ewmh
+--    $ addEwmhWorkspaceSort (pure (filterOutWs [scratchpadWorkspaceTag]))
+--      {- force XMonad to *not* set _NET_DESKTOP_VIEWPORT available since commit cf13f8f (https://github.com/xmonad/xmonad-contrib/commit/cf13f8f9)
+--       - correct polybar order on dual monitors -}
+--      . disableEwmhManageDesktopViewport
+--      . ewmh
     $ def
       { terminal = "kitty --single instance",
         focusFollowsMouse = True,

@@ -134,11 +134,9 @@ myAdditionalKeys conf@XConfig {XMonad.modMask = modm} =
 
 searchEngineMap method =
   M.fromList
-    [ ((0, xK_a), method $ S.searchEngine "archwiki" "http://wiki.archlinux.org/index.php/Special:Search?search="),
-      ((0, xK_g), method S.google),
+    [ ((0, xK_g), method S.google),
       ((0, xK_h), method S.hoogle),
       ((0, xK_i), method S.imdb),
-      ((0, xK_p), method S.aur),
       ((0, xK_s), method $ S.searchEngine "stackoverflow" "https://stackoverflow.com/search?q="),
       ((0, xK_w), method S.wikipedia),
       ((0, xK_y), method S.youtube)
