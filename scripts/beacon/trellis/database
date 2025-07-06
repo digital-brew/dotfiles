@@ -1,0 +1,35 @@
+function trellisDatabaseStagingPush() {
+    . cd $(projectPath)/trellis/
+    command ./bin/database.sh staging $(domain) push
+    . cd $(projectPath)/site/
+}
+
+function trellisDatabaseStagingPull() {
+    . cd $(projectPath)/trellis/
+    command ./bin/database.sh staging $(domain) pull
+    . cd $(projectPath)/site/
+}
+
+function trellisDatabaseStagingBackuo() {
+    . cd $(projectPath)/trellis/
+    command ./bin/database.sh staging $(domain) backup
+    . cd $(projectPath)/site/
+}
+
+function trellisDatabaseProductionPush() {
+    . cd $(projectPath)/trellis/
+    command ./bin/database.sh production $(domain) push
+    . cd $(projectPath)/site/
+}
+
+function trellisDatabaseProductionPull() {
+    . cd $(projectPath)/trellis/
+    command ./bin/database.sh production $(domain) pull
+    . cd $(projectPath)/site/
+}
+
+function trellisDatabaseProductionBackuo() {
+    . cd $(projectPath)/trellis/
+    command ./bin/database.sh production $(domain) backup
+    . cd $(projectPath)/site/
+}

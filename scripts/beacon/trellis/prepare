@@ -1,0 +1,16 @@
+function trellisPrepare() {
+    requirements
+    galaxy
+}
+
+function requirements() {
+    . cd $(projectPath)/trellis/
+    command pip3 install -r requirements.txt
+    . cd $(projectPath)/site/
+}
+
+function galaxy() {
+    . cd $(projectPath)/trellis/
+    command ansible-galaxy install -r galaxy.yml
+    . cd $(projectPath)/site/
+}

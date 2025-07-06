@@ -1,0 +1,45 @@
+# Toggle Window             
+# lalt - t                                :yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+lalt - t                                :yabai -m window --toggle float
+lalt - f                                :yabai -m window --toggle zoom-fullscreen
+# lalt - p                                :yabai -m window --toggle sticky --toggle pip
+lalt - p                                :yabai -m window --toggle sticky
+lalt - s                                :yabai -m window --toggle split
+lalt - q                                :yabai -m window --close
+                
+# Focus Window              
+ctrl - up                               :yabai -m window --focus north
+ctrl - down                             :yabai -m window --focus south
+ctrl - left                             :yabai -m window --focus west
+ctrl - right                            :yabai -m window --focus east
+                
+# Focus Display             
+ctrl - h                                :yabai -m display --focus west
+ctrl - l                                :yabai -m display --focus east
+
+                
+# Focus Next Space on Display               
+lalt + ctrl - h                         :command sh ~/dotfiles/scripts/yabai_focus_previous_space_on_display.sh
+lalt + ctrl - l                         :command sh ~/dotfiles/scripts/yabai_focus_next_space_on_display.sh
+
+                
+# Swap Window               
+shift + lalt - k                        :yabai -m window --swap north
+shift + lalt - j                        :yabai -m window --swap south
+shift + lalt - h                        :yabai -m window --swap west
+shift + lalt - l                        :yabai -m window --swap east
+                
+# Resize Window             
+shift + cmd - l                         :yabai -m window --resize left:50:0 && yabai -m window --resize right:50:0
+shift + cmd - k                         :yabai -m window --resize up:-50:0 && yabai -m window --resize down:-50:0
+shift + cmd - j                         :yabai -m window --resize up:-50:0 && yabai -m window --resize down:-50:0
+shift + cmd - i                         :yabai -m space --balance
+
+# Stacking
+ctrl - k                                :yabai -m window --focus stack.prev
+ctrl - j                                :yabai -m window --focus stack.next
+lalt - x                                :yabai -m window --stack next && yabai -m space --padding abs:46:10:42:10
+
+# Focus last window
+lalt - r                         :yabai -m window --scratchpad recover
+lalt - y                        :yabai -m window --toggle pictureview

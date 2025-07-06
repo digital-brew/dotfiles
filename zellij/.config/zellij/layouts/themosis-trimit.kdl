@@ -1,0 +1,23 @@
+layout {
+    pane name="editor" command="nvim" {
+        focus true
+    } 
+    floating_panes {
+        pane name="root"
+        pane name="trellis" {
+            cwd "./trellis"
+        }
+        pane name="site" {
+            cwd "./site"
+        }
+        pane name="theme - trimit" command="yarn watch" {
+            start_suspended true
+            cwd "./site/public/content/themes/trimit"
+        }
+        pane name="theme - sewsewhappy" command="yarn watch" {
+            start_suspended true
+            cwd "./site/public/content/themes/sewsewhappy"
+        }
+    }
+}
+

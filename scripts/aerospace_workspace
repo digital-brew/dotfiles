@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+SPACE_INDEX=$2
+CURRENT_SPACE_INDEX="$(aerospace list-workspaces --focused)"
+
+if [ "$SPACE_INDEX" != "$CURRENT_SPACE_INDEX" ];
+then
+  if [ "$1" == 'focus' ];
+  then
+    aerospace workspace "$SPACE_INDEX"
+  fi
+
+  if [ "$1" == 'move-and-focus' ];
+    then
+      aerospace move-node-to-workspace "$SPACE_INDEX" && aerospace workspace "$SPACE_INDEX"
+    fi
+    
+  if [ "$1" == 'move' ];
+    then
+      aerospace move-node-to-workspace "$SPACE_INDEX"
+    fi
+fi

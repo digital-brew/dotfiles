@@ -1,0 +1,10 @@
+github-copilot/.config/github-copilot/ps
+raycast/.config/raycast/extensions
+tmux/.config/tmux/plugins
+intelephense
+
+.idea
+.vscode
+.env
+.nvimlog
+.DS_Store

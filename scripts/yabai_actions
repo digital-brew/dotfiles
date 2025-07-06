@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+USER=$(whoami); export USER
+
+if [ "$1" == 'start' ];
+then
+  yabai --start-service
+fi
+
+if [ "$1" == 'restart' ];
+  then
+    yabai --restart-service
+fi
+
+if [ "$1" == 'stop' ];
+  then
+    yabai --stop-service
+fi
+
+if [ "$1" == 'load-sa' ];
+  then
+    yabai --load-sa
+fi
+
+if [ "$1" == 'stack' ];
+  then
+    yabai -m space --padding abs:46:10:42:10
+fi
+
+
+if [ "$1" == 'stack-compact' ];
+  then
+    yabai -m space --padding abs:46:10:14:10
+fi
+
+if [ "$1" == 'unstack' ];
+  then
+    yabai -m space --padding abs:46:10:10:10
+fi

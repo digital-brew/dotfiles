@@ -1,0 +1,21 @@
+function createCert() {
+    echo Domain name:
+    read domainName
+
+    openssl req \
+        -newkey rsa:2048 \
+        -x509 \
+        -nodes \
+        -keyout "$domainName".key \
+        -new \
+        -out "$domainName".crt \
+        -subj /CN="$domainName" \
+        -reqexts SAN \
+        -extensions SAN \
+        -config <(cat $OPENSSL_CNF_PATH \
+            <(printf '[SAN]\nsubjectAltName=DNS:'$domainName)) \
+        -sha256 \
+        -days 3650
+
+
+}

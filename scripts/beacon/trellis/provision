@@ -1,0 +1,11 @@
+function trellisProvisionStaging() {
+    . cd $(projectPath)/trellis/
+    command ansible-playbook server.yml -e env=staging
+    . cd $(projectPath)/site/
+}
+
+function trellisProvisionProduction() {
+    . cd $(projectPath)/trellis/
+    command ansible-playbook server.yml -e env=production
+    . cd $(projectPath)/site/
+}

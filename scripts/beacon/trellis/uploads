@@ -1,0 +1,23 @@
+function trellisUploadsStagingPush() {
+    . cd $(projectPath)/trellis/
+    command ./bin/uploads.sh staging $(domain) push
+    . cd $(projectPath)/site/
+}
+
+function trellisUploadsStagingPull() {
+    . cd $(projectPath)/trellis/
+    command ./bin/uploads.sh staging $(domain) pull
+    . cd $(projectPath)/site/
+}
+
+function trellisUploadsProductionPush() {
+    . cd $(projectPath)/trellis/
+    command ./bin/uploads.sh production $(domain) push
+    . cd $(projectPath)/site/
+}
+
+function trellisUploadsProductionPull() {
+    . cd $(projectPath)/trellis/
+    command ./bin/uploads.sh production $(domain) pull
+    . cd $(projectPath)/site/
+}

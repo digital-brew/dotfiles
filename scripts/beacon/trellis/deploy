@@ -1,0 +1,11 @@
+function trellisDeployStaging() {
+    . cd $(projectPath)/trellis/
+    command ./bin/deploy.sh staging $(domain)
+    . cd $(projectPath)/site/
+}
+
+function trellisDeployProduction() {
+    . cd $(projectPath)/trellis/
+    command ./bin/deploy.sh production $(domain)
+    . cd $(projectPath)/site/
+}

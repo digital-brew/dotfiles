@@ -1,0 +1,447 @@
+c
+clear
+whoami
+ifconfig
+clear
+cd dotfiles/
+make stow
+nu -v
+git
+git -v
+clear
+nu -help
+nu --help
+cp `~/Library/Application Support/nushell/` ~/dotfiles/nushell
+cp -r `~/Library/Application Support/nushell/` ~/dotfiles/nushell
+make stow
+nu --help
+c
+clear
+cd dotfiles/
+make stow
+starship
+echo $nu.config-path
+nu --help
+echo $nu.config-path
+echo $nu.env-path
+starship
+clera
+clear
+echo $nu.env-path
+echo $nu.config-path
+ln -s ~/.config/nushell/ `~/Library/Application Support/`
+echo $nu.config-path
+echo $nu.env-path
+clear
+echo $nu.env-path
+nano $nu.env-path
+c
+clear
+starship preset nerd-font-symbols -o ~/.config/starship.toml
+clear
+which 
+which starship
+which nushell
+which nu
+which brew
+which wezterm
+clear
+c
+clear
+cd dotfiles/brew/
+clear
+cd dotfiles/
+make stow
+cd dotfiles/
+make stow
+clear
+c
+clera
+clear
+cd dotfiles/
+which wezterm
+clear
+cd /Volumes/Work/Projects/local.sewsewhappy.co.uk/
+clear
+which wezterm
+clear
+which wezterm
+nano $nu.env-path
+echo $nu.config-path
+which wezterm
+slurce $nu.config-path && $nu.env-path
+slurce $nu.config-path; $nu.env-path
+source $nu.config-path; source $nu.env-path
+which wezterm
+source $nu.config-path; source $nu.env-path
+which wezterm
+source $nu.config-path; source $nu.env-path
+config
+$nu.config-path
+$env | table -e
+source $nu.config-path; source $nu.env-path
+something here
+somethsre
+clear
+$env | table -e
+source $nu.config-path; source $nu.env-path
+cdd
+cddd
+cdb
+cddb
+cddx
+cdd
+source $nu.config-path; source $nu.env-path
+cdd
+which wezterm
+clear
+source $nu.config-path; source $nu.env-path
+c
+clear
+ff
+yabai
+yabai --help
+source $nu.config-path; source $nu.env-path
+ff
+nu --help
+$nu.version
+$env | table -e
+source ~/.zshrc
+abc
+..
+cd
+...
+cd
+c
+which wezterm
+c
+cdd
+cddb
+brew bundle install
+php -v 
+composer 
+composer global require laravel/valet
+valet install
+source $nu.config-path; source $nu.env-path
+valet
+l
+source $nu.config-path; source $nu.env-path
+valet
+valet install
+valet
+valet which-php
+php -v 
+ez
+fzf
+c
+l
+valet use php@8.3
+php -v
+composer global update
+c
+l
+c
+sketchybar --reload
+cddb
+brew bundle install
+brew services start svim
+brew services restart svim
+echo ":toggle_icons:1" | hs -m stackline-config
+which hs
+yabai -m config left_padding 100
+yabai -m config left_padding 40
+yabai -m config left_padding 50
+brew services stop svim
+yabai -m config left_padding 40
+yabai -m config left_padding 42
+which yabai
+yabai -m config left_padding 10
+yabai -m config left_padding 12
+yabai -m config left_padding 14
+yabai -m config left_padding 8
+yabai -m config left_padding 10
+killall yabai
+yabai -m window 
+yabai -m window --stack
+yabai -m window --stack next
+yabai -m window --unstack
+yabai -m window --help
+yabai --help
+killall yabai
+yabai -m config left_padding 10
+yabai -m config left_padding 40
+yabai -m config left_padding 10
+yabai -m space 7 --padding rel:0:0:0:42
+yabai -m space 7 --padding rel:0:0:42:0:w
+yabai -m space 7 --padding rel:0:0:42:0
+yabai -m space 7 --padding 0:0:42:0
+yabai -m space 7 --padding rel:0:0:42:0
+yabai -m space 7 --padding absa:0:0:42:0
+yabai -m space 7 --padding abs:0:0:42:0
+yabai -m space 7 --padding abs:46:10:42:10
+killall yabai
+yabai -m space 7 --padding rel:0:0:32:0
+yabai -m space 7 --padding rel:0:0:0:0
+yabai -m space 7 --padding rel:0:0:-32:0
+yabai --help
+yabai -m query --spaces --space
+yabai -m query --spaces --space | jq .index
+yabai -m config --padding abs:46:10:10:10
+yabai -m padding abs:46:10:10:10
+yabai -m spaces  --padding abs:46:10:10:10
+yabai -m space --padding abs:46:10:10:10
+yabai -m space --padding abs:46:10:42:10
+yabai -m space --toggle padding
+killall yabai
+brew services restart skhd
+skhd --restart-service
+cdd
+make stow
+brew services restart svim
+cd svim/.config/svim/
+l
+chmod +x svim.sh
+l
+brew services restart svim
+sketchybar --reload
+brew services restart svim
+sketchybar --reload
+sketchybar --reload 
+yabai --restart-service
+skhd --restart-service
+yabai --restart-service
+c
+mysql
+mysql.server start
+mysql
+c
+brew services start mariadb
+mysql -u root
+mysql
+brew services restart mariadb
+mysql -u root -p
+c
+/Volumes/Docs/_TEMP4/TablePlus/
+ls
+mysql -u root -p root < databases.sql
+mysql -u root -p root < ./databases.sql
+mysql -u root -p < databases.sql
+sudo mysql -u root -p < databases.sql
+l
+mysql -u root -p
+c
+cd /Volumes/Work/Projects/
+valet park
+valet
+cd /Volumes/Work/Projects/
+php -v
+which php
+source $nu.config-path; source $nu.env-path
+which php
+cd
+cd dotfiles/brew/
+brew bundle install
+php -v
+cd /Volumes/Work/Projects/
+valet
+valet park
+valet links
+valet parked
+source $nu.config-path; source $nu.env-path
+help aliases
+source $nu.config-path; source $nu.env-path
+al
+source $nu.config-path; source $nu.env-path
+al
+source $nu.config-path; source $nu.env-path
+al
+help aliases
+profile:reload
+source $nu.config-path; source $nu.env-path
+hosts:edit
+nvim
+source $nu.config-path; source $nu.env-path
+hosts:edit
+hosts:reload
+hosts:edit
+ping local.freshstartineducation.co.uk
+valet
+valet restart
+valet paths
+which php
+php -v
+valet use php@8.3
+php -v
+cd local.freshstartineducation.co.uk/
+valet link
+hosts:edit
+hosts:reload
+valet paths
+valet status
+brew services stop dnsmasq
+sudo brew services stop dnsmasq
+ping local.freshstartineducation.co.uk
+killall yabai
+c
+al
+ping local.freshstartineducation.co.uk
+sketchybar --reload 
+php -v
+valet restart
+skhd --restart-service
+yabai --restart-service
+sketchybar --reload 
+c
+source $nu.config-path; source $nu.env-path
+cdxb
+brew bundle install
+which fnm
+source $nu.config-path; source $nu.env-path
+fnm
+fnm use
+which nvm
+nvm
+source $nu.config-path; source $nu.env-path
+cd
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+cdx
+cdd
+cd dotfiles/
+nvim
+cd /Volumes/Work/Projects/
+cd local.sewsewhappy.co.uk/
+nvim
+cd
+cd .config/nvim/
+nvim
+yarn add -D prettier prettier-plugin-blade prettier-plugin-tailwindcss<\n>
+nvim
+nvim .prettierrc
+nvim
+touch .blade.format.json
+nvim .blade.format.json
+nvim
+n
+nvim
+nvim
+cd ..
+mv nvim/ ~/dotfiles/
+cdx
+cdd
+cd 
+cd dotfiles/
+ls
+nvim
+nvim Makefile
+ls
+make stow
+nvim
+make stow
+nvim
+which zellij
+nvim
+wezterm.action.ReloadConfiguration
+nvim
+cdx
+cd dotfiles/
+nvim
+source $nu.config-path; source $nu.env-path
+nvim
+source $nu.config-path; source $nu.env-path
+nvim
+source $nu.config-path; source $nu.env-path
+nvim
+cd /Volumes/Work/Projects/local.sewsewhappy.co.uk/
+nvim
+exit
+nvim
+make stow
+zellij
+nvim
+zellij --help
+zellij attach ssh --layout ~/dotfiles/zellij/.config/zellij/layouts/radicle.kdl
+zellij --layout ~/dotfiles/zellij/.config/zellij/layouts/radicle.kdl attach ssh
+zellij --layout ~/dotfiles/zellij/.config/zellij/layouts/radicle.kdl
+c
+lazygit
+nvim
+nvimm
+hosts:edit
+nvim
+nvim
+fjnvim
+nvim
+nvim
+c
+cd /Volumes/Work/Projects/local.sewsewhappy.co.uk/
+zellij --help
+zellij list-sessions
+zellij attach splendid-blockenspiel
+zellij attach splendid-glockenspiel
+cd /Volumes/Work/Projects/local.freshstartineducation.co.uk/
+c
+cd /Volumes/Work/Projects/local.freshstartineducation.co.uk/
+c
+yarn dev
+nvim
+cd dotfiles/
+nvim
+cd dotfiles/
+nvim
+zellij attach splendid-glockenspiel
+zellij list-sessions
+c
+cd /Volumes/Work/Projects/local.freshstartineducation.co.uk/
+c
+cd /Volumes/Work/Projects/local.freshstartineducation.co.uk/
+c
+nvim
+cd dotfiles/
+cd trellis/
+trellis push live
+trellis push production
+trellis
+trellis deploy production
+ssh-add ~/.ssh/id_ed_digitalbrew
+trellis deploy production
+nvim
+hosts:edit
+valet restart
+php -v
+valet use php@8.3
+cd ..
+cd .config/valet/
+hosts:edit
+hosts:reload
+cd site
+composer install
+cd dotfiles/
+ansible --version
+ansible@9
+which ansible
+cd /usr/local/bin
+l
+ls
+ansible --version
+nvim
+source $nu.config-path; source $nu.env-path
+nvim
+source $nu.config-path; source $nu.env-path
+c
+cd dotfiles/
+cd /Volumes/Work/Projects/local.freshstartineducation.co.uk/
+nvim
+cd ../local.sewsewhappy.co.uk/
+nvim
+cd dotfiles
+nvim
+cd /Volumes/Work/Projects/local.sewsewhappy.co.uk/
+nvim
+zellij list-sessions
+zellij 
+zellij --help
+zellij delete-all-sessions
+zellij list-sessions
+zellij attach --create ssh --layout ~/dotfiles/zellij/.config/zellij/layouts/radicle.kdl
+zellij

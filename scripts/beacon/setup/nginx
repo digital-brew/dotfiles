@@ -1,0 +1,77 @@
+function setupNginx() {
+    source .env
+    valetSecure
+    removeDefaultCerts
+    renameNginxConfig
+    setupNginxConfig
+    generateCert
+    addCertToKeychain
+    removeOldCertFomKeychain
+    restartValet
+}
+
+function valetSecure() {
+    echo ""
+	message "TASK 1/8 [Add Laravel Valet SSL Certificate]"
+    command valet secure $(localDomain)
+    echo ""
+}
+
+function removeDefaultCerts() {
+    message "TASK 2/8 [Remove default certs from valet/Certificates location]"
+    command rm -rf $VALET_PATH/Certificates/$(localDomain).test.crt &&
+        rm -rf $VALET_PATH/Certificates/$(localDomain).test.key &&
+        rm -rf $VALET_PATH/Certificates/$(localDomain).test.csr &&
+        rm -rf $VALET_PATH/Certificates/$(localDomain).test.conf
+    echo ""
+}
+
+function renameNginxConfig() {
+    message "TASK 3/8 [Rename Nginx '$(localDomain).test' to '$(localDomain)']"
+    command mv $VALET_PATH/Nginx/$(localDomain).test $VALET_PATH/Nginx/$(localDomain)
+    echo ""
+}
+
+function setupNginxConfig() {
+    message "TASK 4/8 [Setup Nginx project domain config file]"
+    command sed -i "" "s/$(localDomain).test/$(localDomain)/g" $VALET_PATH/Nginx/$(localDomain)
+    echo ""
+}
+
+function generateCert() {
+    message "TASK 5/8 [Generate new SSL certificate]"
+    openssl req \
+        -newkey rsa:2048 \
+        -x509 \
+        -nodes \
+        -keyout "$VALET_PATH/Certificates/$(localDomain)".key \
+        -new \
+        -out "$VALET_PATH/Certificates/$(localDomain)".crt \
+        -subj /CN="$(localDomain)" \
+        -reqexts SAN \
+        -extensions SAN \
+        -config <(cat $OPENSSL_CNF_PATH \
+            <(printf '[SAN]\nsubjectAltName=DNS:'$(localDomain))) \
+        -sha256 \
+        -days 3650
+    echo ""
+}
+
+function addCertToKeychain() {
+    message "TASK 6/8 [Add generated key to Mac OSX Keychain]"
+    command sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" $VALET_PATH/Certificates/$(localDomain).crt
+    echo ""
+}
+
+function removeOldCertFomKeychain() {
+    message "TASK 7/8 [Remove old Valet SSL key from Mac OSX Keychain]"
+    command sudo security delete-certificate -c $(localDomain).test /Library/Keychains/System.keychain
+    echo ""
+}
+
+function restartValet() {
+    message "TASK 8/8 [Restart Laravel Valet stack]"
+    command valet restart && sudo brew services stop dnsmasq
+    echo ""
+}
+

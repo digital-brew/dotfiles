@@ -1,0 +1,243 @@
+##################################################################################################################
+### TAP ##########################################################################################################
+##################################################################################################################
+tap "shopify/shopify"                             # Shopify CLI
+tap "buo/cask-upgrade"                            # CLI tool for upgrading every outdated app
+tap "koekeishiya/formulae"                        # yabai, skhd
+tap "FelixKratz/formulae"                         # sketchybar, borders
+tap "nahive/spotify-notify"						            # Rich, native Spotify notifications
+# tap "nikitabobko/aerospace"						            # Tiling window manager
+# tap "roots/tap"                                 # Roots Trellis CLI
+tap "shivammathur/php"                            # Homebrew tap for PHP extensions
+
+
+
+##################################################################################################################
+### BREW #########################################################################################################
+##################################################################################################################
+
+brew "ansible"                                    # Automate deployment, configuration, and upgrading
+brew "atuin"
+brew "bat"
+brew "borders"                                    # A lightweight window border system for macOS
+brew "btop"                                       # A monitor of resources
+brew "ca-certificates"				                    # Mozilla CA certificate store
+brew "composer"                                   # Dependency Manager for PHP
+brew "curl"                                       # A command line tool for transferring files with URL syntax
+brew "difftastic"
+brew "displayplacer"                              # Utility to configure multi-display resolutions and arrangements
+brew "eza"                                        # Modern, maintained replacement for ls
+brew "fd"                                         # A simple, fast and user-friendly alternative to find
+brew "fnm"                                        # Node.js version manager, faster than nvm
+brew "fx"
+brew "fzf"                                        # Command-line fuzzy finder
+brew "gettext"                                    # Well integrated set of translation tools and documentation
+brew "gh"                                         # GitHub command-line tool
+brew "git"                                        # Distributed version control system
+brew "groonga"					                          # Fulltext search engine and column store
+brew "htmlq"
+brew "helix"
+brew "icu4c"                                      # Unicode and globalization support library
+brew "ifstat"                                     # Tool to report network interface bandwidth
+brew "imagemagick"
+brew "imageoptim-cli"                             # CLI for ImageOptim, ImageAlpha and JPEGmini
+brew "jless"
+brew "jq"                                         # Lightweight and flexible command-line JSON processor
+brew "koekeishiya/formulae/yabai"
+brew "kondo"
+brew "lazygit"                                    # Simple terminal UI for git commands
+brew "lua"                                        # Powerful, efficient, lightweight, embeddable scripting language
+brew "luarocks"                                   # Package manager for the Lua programming language
+brew "lz4"					                              # Extremely Fast Compression algorithm
+brew "lzo"					                              # Real-time data compression library
+brew "mailpit"      
+brew "make"                                       # Utility for directing compilation
+brew "mariadb"                                    # Drop-in replacement for MySQL
+brew "neovim"                                     # Ambitious Vim-fork focused on extensibility and agility
+brew "nginx"                                      # HTTP and reverse proxy server
+brew "node"                                       # Event-driven I/O framework for the V8 JavaScript engine
+brew "nodeenv"                                    # Manage multiple NodeJS versions
+brew "nushell"                                    # A new type of shell
+brew "nvm"                                        # Manage multiple Node.js versions
+brew "openssl@3"                                  # Cryptography and SSL/TLS Toolkit
+brew "pcre2"                                      # Perl compatible regular expressions library
+# brew "php"                                        # General-purpose scripting language
+brew "pipenv"                                     #
+brew "pipx"                                       # Install and run Python applications in isolated environments
+brew "pkgconf"                                    # Package compiler and linker metadata toolkit
+brew "pnpm"                                       # Fast, disk space efficient package manager
+brew "podman"
+brew "python3"                                    # Interpreted, interactive, object-oriented programming language
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "ranger"                                     # File manager with VI key bindings
+brew "rename"                                     # Rename files from the command-line
+brew "ripgrep"                                    # Search tool like grep and The Silver Searcher
+brew "rnr"
+brew "roots/tap/trellis-cli"                      # A command-line interface (CLI) to manage Trellis projects via the trellis command
+brew "ruby@3"                                     # An object-oriented language for quick and easy programming
+brew "rust"
+brew "serpl"
+brew "shopify-cli"                                # A command-line interface tool that helps you build Shopify apps and themes
+brew "sketchybar"                                 # A highly customizable macOS status bar replacement
+brew "skhd"                                       # Simple hotkey daemon for macOS
+brew "sst/tap/opencode"
+brew "switchaudio-osx"                            # Change macOS audio source from the command-line
+brew "starship"                                   # The minimal, blazing-fast, and infinitely customizable prompt for any shell
+brew "stow"					  # Organize software neatly under a single directory tree
+brew "stripe-cli"
+brew "svim"                                       # Adds all vim moves and modes to macOS text fields
+brew "tabiew"
+brew "tmux"                                       # Terminal multiplexer
+brew "tree"                                       # Display directories as trees (with optional color/HTML output)
+brew "virtualenv"                                 # Tool to create isolated Python environments
+brew "watch"                                      # Executes a program periodically, showing output fullscreen
+brew "wget"                                       # Internet file retriever
+brew "wp-cli"                                     # Command-line interface for WordPress
+brew "wp-cli-completion"                          # Bash completion for Wpcli
+brew "xh"
+brew "xz"
+brew "yarn"                                       # JavaScript package manager
+brew "yazi"                                       # Blazing fast terminal file manager written in Rust, based on async I/O
+brew "zellij"                                     # Terminal workspace with tmux-like keybindings
+brew "zoxide"                                     # A faster way to navigate your filesystem
+brew "zsh-autosuggestions"                        # Fish-like autosuggestions for zsh
+brew "zsh-syntax-highlighting"                    # Fish shell like syntax highlighting for Zsh
+brew "zstd"
+brew "deno"
+brew "cmake"
+
+##################################################################################################################
+### CASK #########################################################################################################
+##################################################################################################################
+
+cask "1password"                                  # Password manager that keeps all passwords secure behind one password
+cask "1password-cli"                              # Command-line interface for 1Password
+cask "adobe-creative-cloud"                       # Collection of apps and services for photography, design, video, web, and UX
+# cask "aerospace"                                  # i3-like tiling window manager for macOS
+# cask "alacritty"                                  # GPU-accelerated terminal emulator
+cask "affinity-designer"                          # Professional graphic design software
+cask "affinity-photo"                             # Professional image editing software
+cask "affinity-publisher"                         # Professional desktop publishing software
+cask "airtable"                                   # Spreadsheet-database hybrid cloud collaboration
+cask "balenaetcher"                               # Tool to flash OS images to SD cards & USB drives
+cask "bartender"                                  # Menu bar icon organiser
+cask "bettertouchtool"                            # Tool to customise input devices and automate computer systems
+cask "brave-browser"                              # Web browser focusing on privacy
+cask "browserosaurus"                             # Open-source browser prompter
+cask "browserstacklocal"                          # Test localhost and staging websites
+cask "blender"                                    # 3D creation suite
+cask "caffeine"                                   # Utility that prevents the system from going to sleep
+cask "chromium"                                   # Free and open-source web browser
+cask "cleanshot"                                  # Screen capturing tool
+cask "clockify"                                   # Time tracking tool for agencies and freelancers
+cask "diffmerge"                                  # Visually compare and merge files
+cask "dimentium/autoraise/autoraiseapp"
+cask "discord"                                    # Voice and text chat software
+cask "figma"                                      # Collaborative team software
+cask "firefox"                                    # Web browser
+cask "floorp"                                     # Privacy-focused Firefox-based browser
+cask "fluid"                                      # Tool to turn a website into a desktop app
+cask "font-sketchybar-app-font"                   # Font for sketchybar
+cask "freetube"                                   # YouTube player focusing on privacy
+cask "ghostty"                                    # Ghostty is a simple and fast terminal emulator
+cask "google-chrome"                              # Web browser
+cask "hammerspoon"                                # Desktop automation application
+cask "handbrake"                                  # Open-source video transcoder available for Linux, Mac, and Windows
+cask "haptic-touch-bar"                           # Add haptic feedback to Touch Bar buttons
+cask "homerow"
+cask "hyper"                                      # Terminal built on web technologies
+cask "imageoptim"                                 # Tool to optimise images to a smaller size
+cask "inkscape"                                   # Vector graphics editor
+cask "ivpn"                                       # VPN client
+cask "jellyfin-media-player"                      # Jellyfin desktop client
+# cask "karabiner-elements"                         # Keyboard customiser
+cask "keyboard-maestro"                           # Automation software
+cask "keycastr"                                   # Keystroke visualizer
+cask "krita"                                      # Free and open-source painting and sketching program
+cask "leader-key"
+cask "loom"                                       # Screen and video recording software
+cask "maccy"                                      # Clipboard manage
+cask "makemkv"                                    # Video format converter (transcoder)
+cask "megacmd"                                    # Command-line access to MEGA services
+cask "megasync"                                   # Syncs files between computers and MEGA Cloud drives
+cask "microsoft-teams"                            # Meet, chat, call, and collaborate in just one place
+cask "neohtop"
+cask "ngrok"                                      # Secure introspectable tunnels to localhost
+cask "notion"                                     # App to write, plan, collaborate, and get organised
+cask "obsidian"                                   # Note-taking and knowledge management app
+cask "ollama"                                     # Create, run, and share large language models (LLMs)
+cask "qmk-toolbox"                                # Toolbox companion for QMK Firmware
+cask "phpstorm"                                   # PHP IDE by JetBrains
+cask "pika"                                       #
+cask "poedit"                                     # Translation editor
+cask "postman"                                    # Collaboration platform for API development
+cask "pycharm-ce"                                 # IDE for professional Python development
+cask "raindropio"                                 # All-in-one bookmark manager
+cask "raspberry-pi-imager"
+cask "ray"                                        # Debug with Ray to fix problems faster
+cask "raycast"                                    # Control your tools with a few keystrokes
+cask "rustdesk"
+cask "sequel-ace"                                 # MySQL/MariaDB database management
+cask "sf-symbols"                                 # Tool that provides consistent, highly configurable symbols for apps
+cask "shortcat"                                   # App that enables mouse-free UI interaction
+cask "signal"                                     # Instant messaging application focusing on security
+cask "slack"                                      # Team communication and collaboration software
+cask "spacelauncher"                              # App launcher/switcher
+# cask "spotify"                                    # Music streaming service
+cask "soundsource"                                # Sound and audio controller
+cask "tableplus"                                  # Native GUI tool for relational databases
+cask "telegram"                                   # Messaging app with a focus on speed and security
+cask "tidal"
+cask "touchswitcher"                              # Use the Touch Bar to switch apps
+cask "transmit"                                   # File transfer application
+cask "upscayl"
+cask "xnapper"                                    # Screenshot tool
+cask "vial"
+cask "virtualbox"                                 # Virtualiser for x86 hardware
+cask "visual-studio-code"                         # Open-source code editor
+cask "vlc"                                        # Multimedia player
+cask "vmware-fusion"                              # Create, manage, and run virtual machines
+cask "wezterm"                                    # GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
+cask "whatsapp"
+cask "windsurf"
+cask "yubico-authenticator"                       # Application for generating TOTP and HOTP codes
+cask "yubico-yubikey-manager"                     # Application for configuring any YubiKey
+cask "zen-browser"                                # Zen browser is a gecko based web browser that is focused on privacy and security
+cask "zoom"                                       # Video communication and virtual meeting platform
+
+
+
+##################################################################################################################
+### FONT #########################################################################################################
+##################################################################################################################
+
+cask "font-fira-mono-nerd-font"
+cask "font-monofur-nerd-font"
+cask "font-ubuntu-mono-nerd-font"
+cask "font-agave-nerd-font"
+cask "font-arimo-nerd-font"
+cask "font-droid-sans-mono-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-go-mono-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-hasklug-nerd-font"
+cask "font-noto-nerd-font"
+cask "font-roboto-mono-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-sf-pro"
+cask "font-ubuntu-nerd-font"
+
+
+
+##################################################################################################################
+### MAS ##########################################################################################################
+##################################################################################################################
+
+mas "Canary Mail App", id: 123_604_5954           # Best email app and calendar
+mas "ColorSlurp", id: 128_723_9339                # Ultimate color productivity boost for designers and developers
+mas "Keynote", id: 409_183_694                    # Presentation maker, PowerPoint alternative for MacOS
+mas "Numbers", id: 409_203_825                    # Spreadsheet, Excel alternative for MacOS
+mas "Pages", id: 409_201_541                      # Text editor, Word alternative for MacOS
+mas "Trello", id: 127_850_8951                    # Manage projects, organize tasks, and build team collaboration
+mas "XnConvert", id: 436_203_431		              # Batch image-converter

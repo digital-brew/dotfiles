@@ -1,0 +1,9 @@
+layout {
+    pane name="editor" {
+        focus true
+        plugin location="zjstatus"
+    } 
+    floating_panes {
+        pane name="cli" 
+    }
+}

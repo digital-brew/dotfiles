@@ -1,0 +1,22 @@
+layout {
+    floating_panes {
+        pane name="root"
+        pane name="trellis" {
+            cwd "./trellis"
+        }
+        pane name="site" {
+            cwd "./site"
+        }
+        pane name="theme" {
+            cwd "./site/web/app/themes/sage"
+        }
+        pane name="yarn" command="yarn watch" {
+            start_suspended true
+            cwd "./site/web/app/themes/sage"
+        }
+    }
+    pane name="editor" expanded=true command="nvim" {
+        focus true
+    } 
+}
+

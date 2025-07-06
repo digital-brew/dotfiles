@@ -1,0 +1,23 @@
+function trellisMuStagingPush() {
+    . cd $(projectPath)/trellis/
+    command ./bin/mu-plugins.sh staging $(domain) push
+    . cd $(projectPath)/site/
+}
+
+function trellisMuStagingPull() {
+    . cd $(projectPath)/trellis/
+    command ./bin/mu-plugins.sh staging $(domain) pull
+    . cd $(projectPath)/site/
+}
+
+function trellisMuProductionPush() {
+    . cd $(projectPath)/trellis/
+    command ./bin/mu-plugins.sh production $(domain) push
+    . cd $(projectPath)/site/
+}
+
+function trellisMuProductionPull() {
+    . cd $(projectPath)/trellis/
+    command ./bin/mu-plugins.sh production $(domain) pull
+    . cd $(projectPath)/site/
+}

@@ -1,0 +1,17 @@
+function setupDatabase() {
+	db_name="$(domain)"
+	db_exists=$(mysql --batch --skip-column-names -e "SHOW DATABASES LIKE '"$db_name"';" | grep "$db_name" > /dev/null; echo "$?")
+	echo ""
+	message "TASK 1/2 [Checking if database esists]"
+	if [ $db_exists -eq 0 ];then
+	    echo " Database $(domain) already exists.\n"
+	    message "TASK 2/2 [Aborting.]"
+	    echo " Task aborted.\n"
+	else
+	    echo " Database $(domain) does not exist.\n"
+	    message "TASK 2/2 [Creating database]"
+	    printf " Creating database."
+	    command mysqladmin -u root -p create $(domain)
+	    printf " Done.\n"
+	fi
+}

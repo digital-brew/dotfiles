@@ -1,0 +1,118 @@
+SCRIPTS_PATH=$HOME/dotfiles/scripts
+
+source $SCRIPTS_PATH/beacon/variables
+source $SCRIPTS_PATH/beacon/helpers
+source $SCRIPTS_PATH/beacon/setup/database
+source $SCRIPTS_PATH/beacon/setup/host
+source $SCRIPTS_PATH/beacon/setup/nginx
+source $SCRIPTS_PATH/beacon/cert/create
+source $SCRIPTS_PATH/beacon/cert/trust
+source $SCRIPTS_PATH/beacon/trellis/database
+source $SCRIPTS_PATH/beacon/trellis/deploy
+source $SCRIPTS_PATH/beacon/trellis/mu-plugins
+source $SCRIPTS_PATH/beacon/trellis/plugins
+source $SCRIPTS_PATH/beacon/trellis/prepare
+source $SCRIPTS_PATH/beacon/trellis/provision
+source $SCRIPTS_PATH/beacon/trellis/uploads
+
+function beacon() {
+
+    set -o allexport
+    [[ -f .env ]] && source .env
+    set +o allexport
+
+    case $1 in
+        '')
+            list
+            echo "" ;;
+        # Cert
+        'cert:create')
+            createCert ;;
+        'cert:trust')
+            trustCert ;;
+        # Setup
+        'setup:db')
+            setupDatabase ;;
+        'setup:host')
+            setupHost ;;
+        'setup:nginx')
+            setupNginx ;;
+        # Trellis Database
+        'trellis:db--staging:push')
+            trellisDatabaseStagingPush ;;
+        'trellis:db--staging:pull')
+            trellisDatabaseStagingPull ;;
+        'trellis:db--staging:backup')
+            trellisDatabaseStagingBackup ;;
+        'trellis:db--production:push')
+            trellisDatabaseProductionPush ;;
+        'trellis:db--production:pull')
+            trellisDatabaseProductionPull ;;
+        'trellis:db--production:backup')
+            trellisDatabaseProductionBackup ;;
+        # Trellis Deploy
+        'trellis:deploy--staging')
+            trellisDeployStaging ;;
+        'trellis:deploy--production')
+            trellisDeployProduction ;;
+        # Trellis Mu-Plugins
+        'trellis:mu--staging:push')
+            trellisMuStagingPush ;;
+        'trellis:mu--staging:pull')
+            trellisMuStagingPull ;;
+        'trellis:mu--production:push')
+            trellisMuProductionPush ;;
+        'trellis:mu--production:pull')
+            trellisMuProductionPull ;;
+        # Trellis Plugins
+        'trellis:plugins--staging:push')
+            trellisPluginsStagingPush ;;
+        'trellis:plugins--staging:pull')
+            trellisPluginsStagingPull ;;
+        'trellis:plugins--production:push')
+            trellisPluginsProductionPush ;;
+        'trellis:plugins--production:pull')
+            trellisPluginsProductionPull ;;
+        # Trellis Prepare
+        'trellis:prepare')
+            trellisPrepare ;;
+        # Trellis Provision
+        'trellis:provision--staging')
+            trellisProvisionStaging ;;
+        'trellis:provision--production')
+            trellisProvisionProduction ;;
+        # Trellis Uploads
+        'trellis:uploads--staging:push')
+            trellisUploadsStagingPush ;;
+        'trellis:uploads--staging:pull')
+            trellisUploadsStagingPull ;;
+        'trellis:uploads--production:push')
+            trellisUploadsProductionPush ;;
+        'trellis:uploads--production:pull')
+            trellisUploadsProductionPull ;;
+        *)
+            color_bg_error=$'\033[1;41m'ls
+            echo "\n $color_bg_error Command '$1' is not defined. $color_reset\n" ;;
+    esac
+}
+
+function list() {
+    mainLabel 'Available Commands'
+    label 'cert'
+        cmd 'cert:create' 'Create new SSL certificate [beacon cert:create domain.com]'
+        cmd 'cert:trust' 'Add certificate to OS X Keychain [beacon cert:trust domain.com]'
+    label 'setup'
+        cmd 'setup:db' 'Create new database'
+        cmd 'setup:host' 'Add entry to the /etc/hosts file'
+        cmd 'setup:nginx' 'Setup nginx + SSL with valet'
+    label 'trellis'
+        cmd 'trellis:db' 'Backup, push and pull database [ --staging, --production ] [ :push :pull :backup ]'
+        cmd 'trellis:deploy' 'Deploy site to live server [ --staging, --production ]'
+        cmd 'trellis:mu' 'Push and pull mu-plugins [ --staging, --production ] [ :push :pull ]'
+        cmd 'trellis:plugins' 'Push and pull plugins [ --staging, --production ] [ :push :pull ]'
+        cmd 'trellis:prepare' 'Install all Ansible Galaxy requirements'
+        cmd 'trellis:provision' 'Prepare remote server [ --staging, --production ]'
+        cmd 'trellis:uploads' 'Push and pull uploads [ --staging, --production ] [ :push :pull ]'
+}
+
+

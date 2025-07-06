@@ -1,0 +1,3 @@
+BASE_PATH=/Volumes/Work/Projects
+VALET_PATH=$HOME/.config/valet
+OPENSSL_CNF_PATH=/System/Library/OpenSSL/openssl.cnf

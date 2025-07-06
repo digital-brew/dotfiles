@@ -1,0 +1,775 @@
+" ===================================================================================================================
+" === IdeaVim config file ===========================================================================================
+" === Source: https://github.com/JetBrains/ideavim/wiki/IdeaVim%20Plugins ===========================================
+" === Last update: 06/04/2025 =======================================================================================
+" ===================================================================================================================
+
+
+" ===================================================================================================================
+" ===            ====================================================================================================
+" ===  SETTINGS  ====================================================================================================
+" ===            ====================================================================================================
+" ===================================================================================================================
+
+" Set leader key
+let mapleader=" "
+" Defines clipboard behavior
+set clipboard+=unnamed
+" Number of command-lines that are remembered
+set history=50
+" Highlight matches with the last search pattern
+set hlsearch
+" Ignore case in search patterns
+set ignorecase
+" Show where search pattern typed so far matches
+set incsearch
+" Add absolute line number
+set number
+" Number of lines to scroll with CTRL-U and CTRL-D
+set scroll=10
+" Minimal number of lines to scroll
+set scrolljump=1
+" Keeps 8 lines visible above and below the cursor when scrolling, making it easier to maintain context while editing.
+set scrolloff=8
+" Minimal number of columns to scroll horizontally
+set sidescroll=10
+" Minimal number of columns to left and right of cursor
+set sidescrolloff=20
+" Show (partial) command in the status bar
+set showcmd
+" Show the current mode in the status bar
+set showmode
+" Use case sensitive search if any character in the pattern is uppercase
+set smartcase
+" Timeout duration for a mapped key sequence, default: 1000
+set timeoutlen=5000
+" When on, prevents beeping on error
+set visualbell
+
+
+
+
+" ===================================================================================================================
+" ===           =====================================================================================================
+" ===  PLUGINS  =====================================================================================================
+" ===           =====================================================================================================
+" ===================================================================================================================
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- argtextobj: Provides a text-object 'a' argument ---------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" This plugin provides a text-object 'a' (argument). You can d(elete), c(hange), v(select)... an argument or inner
+" argument in familiar ways.
+"
+" That is, such as 'daa'(delete-an-argument) 'cia'(change-inner-argument) 'via'(select-inner-argument).
+"
+" By default, only the arguments inside parenthesis are considered. To extend the functionality to other types
+" of brackets, set g:argtextobj_pairs variable to a comma-separated list of colon-separated pairs (same as VIM's
+" matchpairs option), like let g:argtextobj_pairs="(:),{:},<:>". The order of pairs matters when handling symbols
+" that can also be operators: func(x << 5, 20) >> 17. To handle this syntax parenthesis, must come before angle
+" brackets in the list.
+" -------------------------------------------------------------------------------------------------------------------
+
+set argtextobj
+let g:argtextobj_pairs="(:),{:},<:>"
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- commentary: Adds mapping for quickly commenting stuff out -----------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" gc{motion}              Comment or uncomment lines that {motion} moves over.
+" gcc                     Comment or uncomment [count] lines.
+" {Visual}gc              Comment or uncomment the highlighted lines.
+" gc                      Text object for a comment (operator pending mode only.)
+" gcgc / gcu              Uncomment the current and adjacent commented lines.
+" :[range]Commentary      Comment or uncomment [range] lines
+" -------------------------------------------------------------------------------------------------------------------
+
+set commentary
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- easymotion: Simplifies some motions ---------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" EasyMotion provides a much simpler way to use some motions in vim. It takes the <number> out of <number>w
+"
+" or <number>f{char} by highlighting all possible choices and allowing you to press one key to jump directly
+" to the target.
+" -------------------------------------------------------------------------------------------------------------------
+
+" set easymotion
+" set notimeout
+" let g:EasyMotion_override_acejump = 0
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- FunctionTextObj: Adds text objects for manipulating functions/methods -----------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" An extension for IdeaVim that adds text objects for manipulating functions/methods in your code. Similar to how
+"
+" iw operates on words or i" operates on quoted strings, this plugin provides if and af to operate on functions.
+" if - "inner function" - selects the function body (excluding braces)
+" af - "around function" - selects the entire function (including braces and signature)
+"
+" These text objects work with all Vim operators and in visual mode:
+"
+" dif  - delete the function body
+" caf  - change the entire function
+" vif  - visually select the function body
+" yaf  - yank (copy) the entire function
+" -------------------------------------------------------------------------------------------------------------------
+
+set functiontextobj
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- highlightedyank: Highlights the yanked region -----------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Make the yanked region apparent!
+" -------------------------------------------------------------------------------------------------------------------
+
+set highlightedyank
+" Highlight duration time
+let g:highlightedyank_highlight_duration = "500"
+" Highlight background color
+let g:highlightedyank_highlight_color = "rgba(155, 187, 83, 0.3)"
+" Highlight text color
+let g:highlightedyank_highlight_foreground_color = "rgba(255, 255, 255, 0.9)"
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- indent-object: Adds text objects for manipulating sentences/paragraphs/etc ------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Vim text objects provide a convenient way to select and operate on various types of objects. These objects include
+" regions surrounded by various types of brackets and various parts of language (ie sentences, paragraphs, etc).
+"
+" <count>ai         (A)n (I)ndentation level and line above.
+" <count>ii         (I)nner (I)ndentation level (no line above).
+" <count>aI         (A)n (I)ndentation level and lines above/below.
+" <count>iI         (I)nner (I)ndentation level (no lines above/below).
+" -------------------------------------------------------------------------------------------------------------------
+
+set textobj-indent
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Mini.ai: Extend and create a/i textobjects --------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Provides additional text object motions for handling quotes and brackets. The following motions are included:
+"
+" aq: Around any quotes.
+" iq: Inside any quotes.
+" ab: Around any parentheses, curly braces, and square brackets.
+" ib: Inside any parentheses, curly braces, and square brackets.
+" -------------------------------------------------------------------------------------------------------------------
+
+set mini-ai
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- multiple-cursors: Extends multicursor support -----------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" True Sublime Text style multiple selections for Vim
+" -------------------------------------------------------------------------------------------------------------------
+
+set multiple-cursors
+
+" Keybindings
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-s> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+nmap <S-Down> :action EditorCloneCaretBelow<CR>
+nmap <S-Up> :action EditorCloneCaretAbove<CR>
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- NERDTree: Adds NERDTree navigation to the project panel -------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Adds NERDTree navigation to the project panel.
+" -------------------------------------------------------------------------------------------------------------------
+
+set NERDTree
+
+" Keybindings
+nnoremap <leader>e :NERDTreeFocus<CR>
+
+" Whichkey bindings
+let g:WhichKeyDesc_e = "<leader>x Open file explorer"
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Peekaboo: Extends " @ CTRL-r to show a popup of the register contents -----------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Peekaboo extends " and @ in normal mode and in insert mode so you can see the contents of the registers.
+" -------------------------------------------------------------------------------------------------------------------
+
+set peekaboo
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- quick-scope: Always-on highlight for a unique character in every word on a line to help use f, F, etc. --------
+" -------------------------------------------------------------------------------------------------------------------
+" An always-on highlight for a unique character in every word on a line to help you use f, F and family.
+" This plugin should help you get to any word on a line in two or three keystrokes with Vim's built-in f (which
+" moves your cursor to ).
+" -------------------------------------------------------------------------------------------------------------------
+
+set quickscope
+let g:qs_highlight_on_keys = ['t', 'T']
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- ReplaceWithRegister: Adds two-in-one command that replaces text with the contents of a register. --------------
+" -------------------------------------------------------------------------------------------------------------------
+" This plugin offers a two-in-one command that replaces text covered by a {motion}, entire line(s) or the current
+" selection with the contents of a register; the old text is deleted into the black-hole register, i.e. it's gone.
+" (But of course, the command can be easily undone.)
+"
+" [count]["x]gr{motion}	      Replace {motion} text with the contents of register x.
+"			                        Especially when using the unnamed register, this is
+"			                        quicker than "_d{motion}P or "_c{motion}<C-R>"
+" [count]["x]grr		          Replace [count] lines with the contents of register x.
+"			                        To replace from the cursor position to the end of the
+"			                        line use ["x]gr$
+" {Visual}["x]gr		          Replace the selection with the contents of register x.
+" -------------------------------------------------------------------------------------------------------------------
+
+set ReplaceWithRegister
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- sneak: Jump to any location specified by two characters -------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Jump to any location specified by two characters.
+"
+" Type s and two chars to start sneaking in forward direction
+" Type S and two chars to start sneaking in backward direction
+" Type ; or , to proceed with sneaking just as if you were using f or t commands
+" -------------------------------------------------------------------------------------------------------------------
+
+set sneak
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- surround: Adds provides mappings to easily delete, change, and add surroundings in pairs ----------------------
+" -------------------------------------------------------------------------------------------------------------------
+" Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides
+" mappings to easily delete, change and add such surroundings in pairs.
+"
+" Delete surroundings is *ds* .  The next character given determines the target to delete.  The exact nature of
+" the target is explained in |surround-targets| but essentially it is the last character of a |text-object|.
+" This mapping deletes the difference between the "i"nner object and "a"n object.  This is easiest to understand
+" with some examples:
+"  Old text                  Command     New text ~
+"  "Hello *world!"           ds"         Hello world!
+"  (123+4*56)/2              ds)         123+456/2
+"  <div>Yo!*</div>           dst         Yo!
+"
+"Change surroundings is *cs* .  It takes two arguments, a target like with |ds|, and a replacement.  *cS* changes
+" surroundings, placing the surrounded text on its own line(s) like |yS|.  Details about the second argument can be
+" found below in |surround-replacements|.  Once again, examples are in order.
+"  Old text                  Command     New text ~
+"  "Hello *world!"           cs"'        'Hello world!'
+"  "Hello *world!"           cs"<q>      <q>Hello world!</q>
+"  (123+4*56)/2              cs)]        [123+456]/2
+"  (123+4*56)/2              cs)[        [ 123+456 ]/2
+"  <div>Yo!*</div>           cst<p>      <p>Yo!</p>
+"
+" *ys* takes a valid Vim motion or text object as the first object, and wraps it using the second argument as with |cs|.
+" (It's a stretch, but a good mnemonic for "ys" is "you surround".)
+"  Old text                  Command     New text ~
+"  Hello w*orld!             ysiw)       Hello (world)!
+"
+" As a special case, *yss* operates on the current line, ignoring leading whitespace.
+"  Old text                  Command     New text ~
+"  Hello w*orld!             yssB        {Hello world!}
+"
+"There is also *yS* and *ySS* which indent the surrounded text and place it on a line of its own.
+" -------------------------------------------------------------------------------------------------------------------
+
+set surround
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Switch: Switch some text under the cursor based on regex patterns ---------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" The purpose of the plugin is to switch some text under the cursor based on regex patterns. The main entry point
+" is a single command, :Switch. When the command is executed, the plugin looks for one of a few specific patterns
+" under the cursor and performs a substitution depending on it.
+" -------------------------------------------------------------------------------------------------------------------
+
+set switch
+
+" Keybindings
+nnoremap <C-s> :Switch<CR>
+nnoremap <C-S-s> :SwitchReverse<CR>
+
+" Enable all patterns from multiple groups
+let g:switch_definitions = 'group:basic,group:java_script'
+let g:switch_custom_definitions = [
+    " Basic word cycling (with word boundaries)
+    \ switchWords(['debug', 'info', 'warn', 'error']),
+
+    " Case-insensitive word cycling (with word boundaries)
+    \ switchNormalizedCaseWords(['GET', 'POST', 'PUT', 'DELETE']),
+
+    " Custom regex patterns (each pattern is a pair of [match, replacement])
+    \ ['width:\s*(\d+)px', 'width: \1em'],
+    \ ['height:\s*(\d+)px', 'height: \1em']
+\ ]
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- textobj-entire: Adds mapping for selecting entire contents of file regardless of cursor position --------------
+" -------------------------------------------------------------------------------------------------------------------
+" vim-textobj-entire is a Vim plugin to provide text objects (ae and ie by default) to select the entire content
+" of a buffer. Though these are trivial operations (e.g. ggVG), text object versions are more handy, because you
+" do not have to be conscious of the cursor position (e.g. vae).
+" Commands: dae, die, cae cie, vae, vie
+" -------------------------------------------------------------------------------------------------------------------
+
+set textobj-entire
+
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Which-Key: Displays available keybindings in popup ------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+" vim-which-key is vim port of emacs-which-key that displays available keybindings in popup.
+" -------------------------------------------------------------------------------------------------------------------
+
+" Basic settings
+set which-key
+
+" Visual settings
+let g:WhichKey_ShowVimActions                                   = "true"
+let g:WhichKey_FontSize                                         = "16"
+let g:WhichKey_FontFamily                                       = "Dank Mono"
+let g:WhichKey_CommandColor                                     = "#5EA1FF"
+let g:WhichKey_PrefixColor                                      = "#f335b2"
+let g:WhichKey_SortOrder                                        = "by_key_prefix_first"
+let g:WhichKey_SortCaseSensitive                                = "false"
+let g:WhichKeyDesc_leader                                       = "<leader> Leader key"
+
+
+
+
+" ===================================================================================================================
+" ===            ====================================================================================================
+" ===  MAPPINGS  ====================================================================================================
+" ===            ====================================================================================================
+" ===================================================================================================================
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- C -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" WhichKey Mapping
+let g:WhichKeyDesc_copy                                         = "c Copy"
+
+" Surround plugin
+let g:WhichKeyDesc_copy_surround                                = "cs Copy surround: cs\"\' | cs\"<q> | cs)] | cs)[ | cst<p>"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- D -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" WhichKey Mapping
+let g:WhichKeyDesc_delete                                       = "d Delete"
+
+" Surround plugin
+let g:WhichKeyDesc_delete_surround                              = "ds Delete surround: ds\" | ds\) | dst"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- G -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mappings
+map ge ]b
+
+" Remove mappings
+map gD :action VimCancelExEntry<cr>
+map g& :action VimCancelExEntry<cr>
+map g' :action VimCancelExEntry<cr>
+map g8 :action VimCancelExEntry<cr>
+map g@ :action VimCancelExEntry<cr>
+map g` :action VimCancelExEntry<cr>
+map ga :action VimCancelExEntry<cr>
+map gj :action VimCancelExEntry<cr>
+map gk :action VimCancelExEntry<cr>
+map gm :action VimCancelExEntry<cr>
+map go :action VimCancelExEntry<cr>
+map gP :action VimCancelExEntry<cr>
+map gp :action VimCancelExEntry<cr>
+map gq :action VimCancelExEntry<cr>
+map gt :action VimCancelExEntry<cr>
+map gT :action VimCancelExEntry<cr>
+map gT :action VimCancelExEntry<cr>
+
+" WhichKey Group
+let g:WhichKeyDesc_global                                       = "g Global"
+
+let g:WhichKeyDesc_global_hash                                  = "g# Search word backward"
+let g:WhichKeyDesc_global_dollar                                = "g$ Go to last column on screen"
+let g:WhichKeyDesc_global_d                                     = "gd Go to declaration"
+let g:WhichKeyDesc_global_openp                                 = "g( Go to end of previous sentence"
+let g:WhichKeyDesc_global_closep                                = "g) Go to end of next sentence"
+let g:WhichKeyDesc_global_star                                  = "g* Search word forward"
+let g:WhichKeyDesc_global_0                                     = "g0 Go to first column on screen"
+let g:WhichKeyDesc_global_caret                                 = "g^ Go to first non-space column on screen"
+let g:WhichKeyDesc_global_underscore                            = "g_ Go to last non-space column on screen"
+let g:WhichKeyDesc_global_gc                                    = "gc Comment"
+let g:WhichKeyDesc_global_gcc                                   = "gcc Comment line"
+let g:WhichKeyDesc_global_gcu                                   = "gcu Uncomment line"
+let g:WhichKeyDesc_global_ge                                    = "ge Move to end of the previous word"
+let g:WhichKeyDesc_global_gE                                    = "gE Move to end of the previous whole word"
+let g:WhichKeyDesc_global_gg                                    = "gg Go to the first line of a buffer"
+let g:WhichKeyDesc_global_gH                                    = "gH Select in line mode"
+let g:WhichKeyDesc_global_gh                                    = "gh Select in character mode"
+let g:WhichKeyDesc_global_gI                                    = "gI Insert at line start"
+let g:WhichKeyDesc_global_gi                                    = "gi Insert at previous insert"
+let g:WhichKeyDesc_global_gJ                                    = "gJ Append next line"
+let g:WhichKeyDesc_global_gN                                    = "gN Select previous search"
+let g:WhichKeyDesc_global_gn                                    = "gn Select next search"
+let g:WhichKeyDesc_global_gr                                    = "gr Replace with register"
+let g:WhichKeyDesc_global_grr                                   = "grr Replace with register line"
+let g:WhichKeyDesc_global_gU                                    = "gU Change case to upper"
+let g:WhichKeyDesc_global_gu                                    = "gu Change case to lower"
+let g:WhichKeyDesc_global_gtilda                                = "g~ Toggle case of current character"
+
+" Remove WhichKey mappings
+let g:WhichKeyDesc_movement_remove_gD                           = "gD"
+let g:WhichKeyDesc_movement_remove_gand                         = "g&"
+let g:WhichKeyDesc_movement_remove_singleq                      = "g'"
+let g:WhichKeyDesc_movement_remove_g8                           = "g8"
+let g:WhichKeyDesc_movement_remove_gog                          = "g<⌃-g>"
+let g:WhichKeyDesc_movement_remove_goh                          = "g<⌃-h>"
+let g:WhichKeyDesc_movement_remove_goa                          = "g<⌃-a>"
+let g:WhichKeyDesc_movement_remove_gox                          = "g<⌃-x>"
+let g:WhichKeyDesc_movement_remove_gat                          = "g@"
+let g:WhichKeyDesc_movement_remove_gbacktick                    = "g`"
+let g:WhichKeyDesc_movement_remove_ga                           = "ga"
+let g:WhichKeyDesc_movement_remove_gj                           = "gj"
+let g:WhichKeyDesc_movement_remove_gk                           = "gk"
+let g:WhichKeyDesc_movement_remove_gm                           = "gm"
+let g:WhichKeyDesc_movement_remove_go                           = "go"
+let g:WhichKeyDesc_movement_remove_gp                           = "gp"
+let g:WhichKeyDesc_movement_remove_gP                           = "gP"
+let g:WhichKeyDesc_movement_remove_gq                           = "gq"
+let g:WhichKeyDesc_movement_remove_gt                           = "gt"
+let g:WhichKeyDesc_movement_remove_gT                           = "gT"
+let g:WhichKeyDesc_movement_remove_gT                           = "gv"
+let g:WhichKeyDesc_movement_remove_garrowu                      = "g↑"
+let g:WhichKeyDesc_movement_remove_garrowd                      = "g↓"
+let g:WhichKeyDesc_movement_remove_garrowl                      = "g←"
+let g:WhichKeyDesc_movement_remove_garrowr                      = "g→"
+let g:WhichKeyDesc_movement_remove_garrowtl                     = "g↖"
+let g:WhichKeyDesc_movement_remove_garrowbr                     = "g↘"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Q -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Map jj to escape
+imap jj <Esc>
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Q -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Y -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Remap redo
+noremap U <C-r>
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Y -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" WhichKey Group
+let g:WhichKeyDesc_yank                                         = "y Yank"
+
+" Surround plugin
+let g:WhichKeyDesc_yank_surround                                = "ys  surround: ysiw) | yssB"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Z -------------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Remove mappings
+map zz :action VimCancelExEntry<cr>
+map z- :action VimCancelExEntry<cr>
+map z+ :action VimCancelExEntry<cr>
+map z+ :action VimCancelExEntry<cr>
+map z← :action VimCancelExEntry<cr>
+map z→ :action VimCancelExEntry<cr>
+noremap z<Left> <Nop>
+noremap z<Right> <Nop>
+
+" WhichKey Group
+let g:WhichKeyDesc_movement                                     = "z Movement"
+
+" Cursor movement
+let g:WhichKeyDesc_movement_dot                                 = "z. Center cursor on screen"
+let g:WhichKeyDesc_movement_caret                               = "z^ Scroll to the last line on the previous screen"
+let g:WhichKeyDesc_movement_enter                               = 'z⏎ Scroll to the beginning of a line under the cursor'
+let g:WhichKeyDesc_movement_b                                   = "zb Position cursor on bottom of the screen"
+let g:WhichKeyDesc_movement_t                                   = "zt Position cursor on top of the screen"
+let g:WhichKeyDesc_movement_h                                   = "zh Scroll one column to the right"
+let g:WhichKeyDesc_movement_H                                   = "zH Scroll half width to the right"
+let g:WhichKeyDesc_movement_l                                   = "zl Scroll one column to the left"
+let g:WhichKeyDesc_movement_L                                   = "zL Scroll half width to the left"
+let g:WhichKeyDesc_movement_e                                   = "ze Scroll to the left edge of the screen"
+let g:WhichKeyDesc_movement_s                                   = 'zs Scroll to the first column under the cursor'
+
+" Collapsing/expanding
+let g:WhichKeyDesc_movement_a                                   = "za Toggle region under the cursor"
+let g:WhichKeyDesc_movement_c                                   = "zc Collapse region under the cursor"
+let g:WhichKeyDesc_movement_C                                   = "zC Collapse region recursively under the cursor"
+let g:WhichKeyDesc_movement_o                                   = 'zo Expand region under the cursor'
+let g:WhichKeyDesc_movement_O                                   = 'zO Expand region recursively under the cursor'
+let g:WhichKeyDesc_movement_M                                   = 'zM Collapse all regions'
+let g:WhichKeyDesc_movement_R                                   = 'zR Expand all regions'
+
+" Remove WhichKey mappings
+let g:WhichKeyDesc_movement_remove_1                            = "zz"
+let g:WhichKeyDesc_movement_remove_2                            = "z-"
+let g:WhichKeyDesc_movement_remove_3                            = "z+"
+let g:WhichKeyDesc_movement_remove_4                            = "z←"
+let g:WhichKeyDesc_movement_remove_5                            = "z→"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Other ---------------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Remove search highlighting
+noremap <Esc> :nohlsearch<CR>
+
+nmap [[ :action MethodUp<CR>
+nmap ]] :action MethodDown<CR>
+nmap f :action AceWordStartAction<CR>
+map b [b
+map e ]w
+map w [w
+
+
+
+
+" ===================================================================================================================
+" ===                       =========================================================================================
+" ===  LEADER KEY MAPPINGS  =========================================================================================
+" ===                       =========================================================================================
+" ===================================================================================================================
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, C -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+nnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>ci :action InspectCode<CR>
+nnoremap <leader>ce :action CodeInspection.OnEditor<CR>
+nnoremap <leader>ct :action TailwindFormatterFileAction<CR>
+nnoremap <leader>cl :action com.laravel_idea.plugin.LaravelActionChooser<CR>
+nnoremap <leader>ch :action com.laravel_idea.plugin.GenerateHelperCodeAction<CR>
+
+" WhichKey Mapping
+let g:WhichKeyDesc_c                                            = "<leader>c Code"
+let g:WhichKeyDesc_ci                                           = "<leader>ci Code inspection"
+let g:WhichKeyDesc_ce                                           = "<leader>ce Code inspection on editor"
+let g:WhichKeyDesc_cf                                           = "<leader>cf Reformat code"
+let g:WhichKeyDesc_ct                                           = "<leader>ct Tailwind format file"
+let g:WhichKeyDesc_cl                                           = "<leader>cl Laravel Code Generation"
+let g:WhichKeyDesc_ch                                           = "<leader>ch Generate Helper Code"
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, E -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" WhichKey Mapping
+let g:WhichKeyDesc_e                                            = "<leader>e Files"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, F -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+map <leader>ff :action GotoFile<CR>
+map <leader>fr :action RecentFiles<CR>
+map <leader>fe :action SearchEverywhere<CR>
+map <leader>fa :action GotoAction<CR>
+map <leader>fs :action GotoSymbol<CR>
+map <leader>fd :action ActivateStructureToolWindow<CR>
+map <leader>ft :action TextSearchAction<CR>
+map <leader>fu <action>(com.mituuz.fuzzier.Fuzzier)
+map <leader>fy <action>(com.mituuz.fuzzier.FuzzierVCS)
+map <leader>fm <action>(com.mituuz.fuzzier.FuzzyMover)
+map <leader>fn <action>(com.mituuz.fuzzier.FuzzyGrep)
+
+" WhichKey Mapping
+let g:WhichKeyDesc_f                                            = "<leader>f File navigation"
+let g:WhichKeyDesc_fa                                           = "<leader>fa Search Actions"
+let g:WhichKeyDesc_fd                                           = "<leader>fd Structure"
+let g:WhichKeyDesc_fe                                           = "<leader>fe Search everywhere"
+let g:WhichKeyDesc_ff                                           = "<leader>ff Search files"
+let g:WhichKeyDesc_fs                                           = "<leader>fs Search symbols"
+let g:WhichKeyDesc_fm                                           = "<leader>fm Fuzzy mover"
+let g:WhichKeyDesc_fn                                           = "<leader>fn Fuzzy grep"
+let g:WhichKeyDesc_fu                                           = "<leader>fu Fuzzier"
+let g:WhichKeyDesc_fn                                           = "<leader>fy Fuzzier VCS"
+let g:WhichKeyDesc_fr                                           = "<leader>fr Search recent files"
+let g:WhichKeyDesc_ft                                           = "<leader>ft Search text"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, G -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+nmap <leader>gd :action GotoDeclaration<CR>
+nmap <leader>gy :action GotoTypeDeclaration<CR>
+nmap <leader>gi :action GotoImplementation<CR>
+nmap <leader>gu :action ShowUsages<CR>
+nmap <leader>gt :action GotoTest<CR>
+nmap <leader>gf :action Back<CR>
+nmap <leader>gb :action Forward<CR>
+nmap <leader>gl :action QuickActionPopup<CR>
+nmap <leader>ga :action Git.Add<CR>
+map <leader>gx :action CommentByLineComment<CR>
+map <leader>gh :action ActivateVersionControlToolWindow<CR>
+map <leader>gg :action CheckinProject<CR>
+map <leader>gs :action ActivateVersionControlToolWindow<CR>
+map <leader>gr :action Git.Branches<CR>
+map <leader>gk :action Vcs.LLMCommitMessageAction<CR>
+map <leader>gp :action Git.Commit.And.Push.Executor<CR>
+
+" WhichKey Mapping
+let g:WhichKeyDesc_g                                            = "<leader>g Go to / VCS"
+let g:WhichKeyDesc_gd                                           = "<leader>gd Go to definition"
+let g:WhichKeyDesc_gy                                           = "<leader>gy Go to type definition"
+let g:WhichKeyDesc_gi                                           = "<leader>gi Go to implementation"
+let g:WhichKeyDesc_gu                                           = "<leader>gu Go to usages"
+let g:WhichKeyDesc_gt                                           = "<leader>gt Go to test"
+let g:WhichKeyDesc_gb                                           = "<leader>gb Go back"
+let g:WhichKeyDesc_gf                                           = "<leader>gf Go forward"
+let g:WhichKeyDesc_gl                                           = "<leader>gl Quick action"
+let g:WhichKeyDesc_gx                                           = "<leader>gx Comment line"
+let g:WhichKeyDesc_gg                                           = "<leader>gg Git commit"
+let g:WhichKeyDesc_gh                                           = "<leader>gh Git history"
+let g:WhichKeyDesc_gs                                           = "<leader>gs Git status"
+let g:WhichKeyDesc_gr                                           = "<leader>gr Git branches"
+let g:WhichKeyDesc_ga                                           = "<leader>ga Add to git"
+let g:WhichKeyDesc_gk                                           = "<leader>gk Git commit: Generate"
+let g:WhichKeyDesc_gp                                           = "<leader>gp Git commit: Push"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, R -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+map <leader>rn :action RenameElement<CR>
+map <leader>rm :action ExtractMethod<CR>
+map <leader>rv :action IntroduceVariable<CR>
+map <leader>rf :action IntroduceField<CR>
+map <leader>rs :action ChangeSignature<CR>
+map <leader>rr :action Refactorings.QuickListPopupAction<CR>
+map <leader>ri :action osmedile.intellij.stringmanip.switchcasepopup<CR>
+
+" WhichKey Mapping
+let g:WhichKeyDesc r                                            = "<leader>r Refactoring"
+let g:WhichKeyDesc_rn                                           = "<leader>rn Rename element"
+let g:WhichKeyDesc_rm                                           = "<leader>rm Extract method"
+let g:WhichKeyDesc_rv                                           = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_rf                                           = "<leader>rf Introduce field"
+let g:WhichKeyDesc_rs                                           = "<leader>rs Change signature"
+let g:WhichKeyDesc_rr                                           = "<leader>rr Refactorings list"
+let g:WhichKeyDesc_ri                                           = "<leader>ri Switchcase"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, T -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+nmap <leader>t :action ActivateTerminalToolWindow<CR>
+
+" WhichKey Mapping
+let g:WhichKeyDesc_terminal                                     = "<leader>t Terminal"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, V -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+nmap <leader>vd :action ActivateDatabaseToolWindow<CR>
+nmap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
+map <leader>vl :action ActivateAIAssistantToolWindow<CR>
+map <leader>vk :action AIAssistant.Editor.AskAiAssistantInEditor<CR>
+map <leader>v' :action ActivateElectroJunToolWindowToolWindow<CR>
+map <leader>vo :action ManageRecentProjects<CR>
+map <leader>vc :let @" = ''<CR> :let @* = ''<CR> :let @+ = ''<CR> :let @. = ''<CR> :let @: = ''<CR> :let @/ = ''<CR> :let @- = ''<CR> :let @0 = ''<CR> :let @1 = ''<CR> :let @2 = ''<CR> :let @3 = ''<CR> :let @4 = ''<CR> :let @6 = ''<CR> :let @7 = ''<CR> :let @8 = ''<CR> :let @9 = ''<CR> :let @a = ''<CR> :let @b = ''<CR> :let @c = ''<CR> :let @e = ''<CR> :let @f = ''<CR> :let @g = ''<CR> :let @h = ''<CR> :let @i = ''<CR> :let @j = ''<CR> :let @k = ''<CR> :let @l = ''<CR> :let @m = ''<CR> :let @n = ''<CR> :let @o = ''<CR> :let @q = ''<CR> :let @p = ''<CR> :let @r = ''<CR> :let @s = ''<CR> :let @t = ''<CR> :let @u = ''<CR> :let @v = ''<CR> :let @w = ''<CR> :let @y = ''<CR> :let @z = ''<CR>
+
+" WhichKey Mapping
+let g:WhichKeyDesc_v                                            = "<leader>v Random actions"
+let g:WhichKeyDesc_vd                                           = "<leader>vd Database"
+let g:WhichKeyDesc_vo                                           = "<leader>vo Manage Projects"
+let g:WhichKeyDesc_vl                                           = "<leader>vl Toggle Assistant"
+let g:WhichKeyDesc_vk                                           = "<leader>vk Ask Assistant"
+let g:WhichKeyDesc_v'                                           = "<leader>v' Toggle Junie"
+let g:WhichKeyDesc_vr                                           = "<leader>vr Reload IdeaVim"
+let g:WhichKeyDesc_vc                                           = "<leader>vc Clear register"
+
+
+" -------------------------------------------------------------------------------------------------------------------
+" --- Leader, W -----------------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------------------------
+
+" Mapping
+map <leader>wv <Action>(SplitVertically)
+map <leader>wh <Action>(SplitHorizontally)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+
+" WhichKey Mapping
+let g:WhichKeyDesc_w                                            = "<leader>w Window splits"
+let g:WhichKeyDesc_wv                                           = "<leader>wv Split vertically"
+let g:WhichKeyDesc_wh                                           = "<leader>wh Split horizontally"
+let g:WhichKeyDesc_ww                                           = "<leader>ww Unsplit"
+let g:WhichKeyDesc_wa                                           = "<leader>wa Unsplit all"

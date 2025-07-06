@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+options=(
+  active_color=0xffe6ff00
+  # active_color=0xff7aff00
+  inactive_color=0xff414550
+  width=8.0
+  ax_focus=false
+  background_color=0x00000000
+  blur_radius=0.0
+  hidpi=false
+  style=round 
+  blacklist="Loom" 
+)
+
+borders "${options[@]}"

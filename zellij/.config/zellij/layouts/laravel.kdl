@@ -1,0 +1,8 @@
+layout {
+  floating_panes {      
+    pane name="artisan"
+    pane name="npm"
+  }
+  pane name="editor"
+}
+

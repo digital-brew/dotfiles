@@ -1,0 +1,8 @@
+function trustCert() {
+    echo Domain name:
+    read domainName
+
+    message "TASK [Add generated key to Mac OSX Keychain]"
+    command security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" ./certs/$domainName.crt
+    echo ""
+}

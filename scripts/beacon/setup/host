@@ -1,0 +1,17 @@
+function setupHost() {
+	addRecord
+	reloadHosts
+}
+
+function addRecord() {
+	echo ""
+	message "TASK 1/2 [Add record to /etc/hosts]"
+	command sudo -- sh -c -e "echo 127.0.0.1 $(localDomain)>> /etc/hosts"
+	echo ""
+}
+
+function reloadHosts() {
+	message "TASK 2/2 [Reload hosts file]"
+	command sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+	echo ""
+}
