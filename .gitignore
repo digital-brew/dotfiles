@@ -2,6 +2,7 @@ github-copilot/.config/github-copilot/ps
 raycast/.config/raycast/extensions
 tmux/.config/tmux/plugins
 intelephense
+nvim-adibhanna
 
 .idea
 .vscode
