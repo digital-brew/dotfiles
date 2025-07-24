@@ -182,27 +182,6 @@ return {
       -- statusline.section_location = function()
       --   return "%2l:%-2v"
       -- end
-      -- statusline.section_filename = function()
-      --   return vim.fn.expand("%:t")
-      -- end
-      --
-      -- statusline.section_fileinfo = function()
-      --   local clients = vim.lsp.get_active_clients()
-      --   local client_names = {}
-      --
-      --   for _, client in ipairs(clients) do
-      --     if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-      --       table.insert(client_names, client.name)
-      --     end
-      --   end
-      --
-      --   local pint_executable = vim.fn.executable("vendor/bin/pint") == 1
-      --   if pint_executable then
-      --     table.insert(client_names, "pint")
-      --   end
-      --
-      --   return #client_names > 0 and table.concat(client_names, ", ") or ""
-      -- end
     end,
   },
 
@@ -214,7 +193,7 @@ return {
   },
 
   {
-    -- "fladson/vim-kitty",
+    "fladson/vim-kitty",
     "MunifTanjim/nui.nvim",
   },
   {
@@ -234,41 +213,6 @@ return {
           vim.cmd("ShowkeysToggle")
         end,
         desc = "Show key presses",
-      },
-    },
-  },
-  {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-    config = function()
-      require("barbecue").setup({
-        position = "bottom", -- Set the position to bottom
-      })
-    end,
-  },
-  {
-    "dmtrKovalenko/caps-word.nvim",
-    lazy = true,
-    opts = {
-      auto_underscore_inject = false,
-      enable_numbers_in_caps = true,
-      enter_callback = function()
-        vim.notify("Caps Word: On", "info", { title = "Caps Word" })
-      end,
-      exit_callback = function()
-        vim.notify("Caps Word: Off", "info", { title = "Caps Word" })
-      end,
-    },
-    keys = {
-      {
-        mode = { "i", "n" },
-        "<C-s>",
-        "<cmd>lua require('caps-word').toggle()<CR>",
       },
     },
   },

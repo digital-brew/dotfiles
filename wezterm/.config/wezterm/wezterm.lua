@@ -1,6 +1,8 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local config = {}
+local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+custom.background = "#011526"
 
 if wezterm.config_builder then
 	config = wezterm.config_builder()
@@ -10,23 +12,23 @@ end
 config = {
 	default_prog = { "zsh" },
 	font = wezterm.font_with_fallback({
-		-- { family = "JetBrains Mono", weight = "Medium" },
+		-- { family = "JetBrains Mono",        weight = "Bold" },
 		{ family = "DankMono Nerd Font",    weight = "Bold" },
 		{ family = "Symbols NerdFont Mono", scale = 0.75 },
 	}),
-	font_rules = {
-		{
-			intensity = "Bold",
-			italic = false,
-			-- font = wezterm.font({ family = "JetBrains Mono", weight = "Bold" }),
-			font = wezterm.font({ family = "DankMono Nerd Font Mono", weight = "Bold" }),
-		},
-	},
+	-- font_rules = {
+	-- 	{
+	-- 		intensity = "Bold",
+	-- 		italic = false,
+	-- 		-- font = wezterm.font({ family = "JetBrains Mono", weight = "Bold" }),
+	-- 		font = wezterm.font({ family = "DankMono Nerd Font Mono", weight = "Bold" }),
+	-- 	},
+	-- },
 	freetype_load_target = "Normal",
 	-- font = wezterm.font("Hack Nerd Font Propo", { weight = "Bold" }),
 	-- font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	--config.font = wezterm.font("MesloLGS Nerd Font Mono")
-	font_size = 19,
+	font_size = 18,
 	line_height = 1.05,
 	freetype_load_flags = "NO_HINTING",
 
@@ -55,6 +57,8 @@ config = {
 			source = {
 				-- File = "Users/moonlander/dotfiles/assets/image2.png",
 				Color = "#011526",
+				-- Color = "#03111e",
+				-- Color = "#0d1017",
 			},
 			-- hsb = {
 			--   hue = 1.0,

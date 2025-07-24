@@ -1,7 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    enabled = true,
+    enabled = false,
     opts = {
       extensions = {
         history = {
@@ -16,14 +16,14 @@ return {
             dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
           },
         },
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-          opts = {
-            make_vars = true,
-            make_slash_commands = true,
-            show_result_in_chat = true,
-          },
-        },
+        -- mcphub = {
+        --   callback = "mcphub.extensions.codecompanion",
+        --   opts = {
+        --     make_vars = true,
+        --     make_slash_commands = true,
+        --     show_result_in_chat = true,
+        --   },
+        -- },
         vectorcode = {
           opts = {
             add_tool = true,
@@ -31,29 +31,22 @@ return {
         },
       },
       adapters = {
-        anthropic = function()
-          return require("codecompanion.adapters").extend("anthropic", {
-            env = {
-              api_key = "ANTHROPIC_API_KEY",
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "gemini-2.5-pro",
+              },
             },
           })
         end,
-        -- copilot = function()
-        --     return require("codecompanion.adapters").extend("copilot", {
-        --         schema = {
-        --             model = {
-        --                 default = "gemini-2.5-pro",
-        --             },
-        --         },
-        --     })
-        -- end,
       },
     },
     keys = {
-      { "<leader>iC", "<cmd>CodeCompanion<cr>",        desc = "CodeCompanion" },
-      { "<leader>ic", "<cmd>CodeCompanionChat<cr>",    desc = "CodeCompanion Chat" },
+      { "<leader>ic", "<cmd>CodeCompanion<cr>", desc = "CodeCompanion" },
+      { "<leader>iC", "<cmd>CodeCompanionChat<cr>", desc = "CodeCompanion Chat" },
       { "<leader>ia", "<cmd>CodeCompanionActions<cr>", desc = "CodeCompanion Actions" },
-      { "<leader>id", "<cmd>CodeCompanionCmd<cr>",     desc = "CodeCompanion CMD" },
+      { "<leader>id", "<cmd>CodeCompanionCmd<cr>", desc = "CodeCompanion CMD" },
     },
     dependencies = {
       "j-hui/fidget.nvim",
@@ -71,31 +64,23 @@ return {
       require("codecompanion").setup({
         strategies = {
           chat = {
-            adapter = "anthropic",
+            adapter = "copilot",
           },
           inline = {
-            adapter = "anthropic",
+            adapter = "copilot",
           },
           cmd = {
-            adapter = "anthropic",
+            adapter = "copilot",
           },
         },
         display = {
-          chat = {
-            window = {
-              layout = "buffer",
-              width = 0.27,
-              height = 0.8,
-              full_height = true,
-            },
-          },
           action_palette = {
             width = 95,
             height = 10,
-            prompt = "Prompt ",                   -- Prompt used for interactive LLM calls
-            provider = "snacks",                  -- Can be "default", "telescope", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
+            prompt = "Prompt ", -- Prompt used for interactive LLM calls
+            provider = "snacks", -- Can be "default", "telescope", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
             opts = {
-              show_default_actions = true,        -- Show the default actions in the action palette?
+              show_default_actions = true, -- Show the default actions in the action palette?
               show_default_prompt_library = true, -- Show the default prompt library in the action palette?
             },
           },
@@ -106,31 +91,18 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    enabled = true,
+    enabled = false,
     lazy = false,
     version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
     opts = {
-      mode = "legacy",
       -- add any opts here
       -- for example
-      provider = "claude",
-      providers = {
-        claude = {
-          endpoint = "https://api.anthropic.com",
-          model = "claude-sonnet-4-20250514",
-          timeout = 30000, -- Timeout in milliseconds
-          extra_request_body = {
-            temperature = 0.75,
-            max_tokens = 20480,
-          },
-        },
-        gemini = {
-          model = "gemini-2.5-pro-preview-03-25", -- your desired model (or use gpt-4o, etc.)
-          timeout = 30000,                        -- Timeout in milliseconds, increase this for reasoning models
-          temperature = 0,
-          max_completion_tokens = 8192,           -- Increase this to include reasoning tokens (for reasoning models)
-          --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-        },
+      provider = "copilot",
+      copilot = {
+        -- model = "claude-3.7-sonnet-thought",
+        model = "claude-3.7-sonnet",
+        temperature = 1,
+        max_tokens = 20000,
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -147,7 +119,7 @@ return {
       -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       -- "ibhagwan/fzf-lua", -- for file_selector provider fzf
       -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -218,13 +190,19 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     enabled = false,
     dependencies = {
-      { "github/copilot.vim" },                       -- or zbirenbaum/copilot.lua
+      { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
-    build = "make tiktoken",                          -- Only on MacOS or Linux
+    build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       -- See Configuration section for options
     },
     -- See Commands section for default commands if you want to lazy load on them
+  },
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({})
+    end,
   },
 }

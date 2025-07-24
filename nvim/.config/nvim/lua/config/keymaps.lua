@@ -91,5 +91,61 @@ vim.keymap.set("n", "<C-P>", ':lua require("config.utils").toggle_go_test()<CR>'
 
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", opts)
 
-vim.keymap.set("n", "<leader>L", "")
+-- Laravel.nvim
+
+-- Go to controller
+vim.keymap.set("n", "<leader>'c", function()
+  require("laravel.navigate").goto_controller()
+end, { desc = "Go to controller" })
+-- Go to model
+vim.keymap.set("n", "<leader>'m", function()
+  require("laravel.navigate").goto_model()
+end, { desc = "Go to model" })
+-- Go to view
+vim.keymap.set("n", "<leader>'v", function()
+  require("laravel.navigate").goto_view()
+end, { desc = "Go to view" })
+-- Show routes
+vim.keymap.set("n", "<leader>'R", function()
+  require("laravel.routes").show_routes()
+end, { desc = "Show routes" })
+-- Go to route file
+vim.keymap.set("n", "<leader>'r", function()
+  require("laravel.navigate").goto_route_file()
+end, { desc = "Go to route file" })
+-- Run artisan command
+vim.keymap.set("n", "<leader>'a", function()
+  vim.cmd("Artisan")
+end, { desc = "Run artisan command" })
+-- Make command
+vim.keymap.set("n", "<leader>'k", function()
+  require("laravel.artisan").make_command()
+end, { desc = "Make command" })
+-- Show status
+vim.keymap.set("n", "<leader>'s", function()
+  vim.cmd("LaravelStatus")
+end, { desc = "Show status" })
+-- Show schema diagram
+vim.keymap.set("n", "<leader>'S", function()
+  require("laravel.schema").show_schema_diagram(false)
+end, { desc = "Show schema diagram" })
+-- Export schema diagram 
+vim.keymap.set("n", "<leader>'E", function()
+  require("laravel.schema").show_schema_diagram(true)
+end, { desc = "Export schema diagram" })
+-- Show architecture diagram 
+vim.keymap.set("n", "<leader>'A", function()
+  require("laravel.architecture").show_architecture_diagram()
+end, { desc = "Show architecture diagram" })
+
+-- PHPRefactoring.nvim 
+vim.keymap.set('v', '<leader>rv', '<cmd>PHPExtractVariable<cr>', { desc = 'Extract variable' })
+vim.keymap.set('v', '<leader>rm', '<cmd>PHPExtractMethod<cr>', { desc = 'Extract method' })
+vim.keymap.set('v', '<leader>rc', '<cmd>PHPExtractClass<cr>', { desc = 'Extract class' })
+vim.keymap.set('n', '<leader>ri', '<cmd>PHPExtractInterface<cr>', { desc = 'Extract interface' })
+vim.keymap.set('n', '<leader>ic', '<cmd>PHPIntroduceConstant<cr>', { desc = 'Introduce constant' })
+vim.keymap.set('n', '<leader>if', '<cmd>PHPIntroduceField<cr>', { desc = 'Introduce field' })
+vim.keymap.set('n', '<leader>ip', '<cmd>PHPIntroduceParameter<cr>', { desc = 'Introduce parameter' })
+vim.keymap.set('n', '<leader>cs', '<cmd>PHPChangeSignature<cr>', { desc = 'Change signature' })
+vim.keymap.set('n', '<leader>pm', '<cmd>PHPPullMembersUp<cr>', { desc = 'Pull members up' })
 

@@ -38,7 +38,7 @@ shift + cmd - i                         :yabai -m space --balance
 # Stacking
 ctrl - k                                :yabai -m window --focus stack.prev
 ctrl - j                                :yabai -m window --focus stack.next
-lalt - x                                :yabai -m window --stack next && yabai -m space --padding abs:46:10:42:10
+lalt - x                                :yabai -m window --stack next && yabai -m space 6 --padding abs:20:10:42:10 && yabai -m space 16 --padding abs:46:10:42:10
 
 # Focus last window
 lalt - r                         :yabai -m window --scratchpad recover

@@ -8,10 +8,10 @@ return {
         -- event = "InsertEnter",
         version = "*",
         config = function()
-            vim.cmd('highlight Pmenu guibg=none')
-            vim.cmd('highlight PmenuExtra guibg=none')
-            vim.cmd('highlight FloatBorder guibg=none')
-            vim.cmd('highlight NormalFloat guibg=none')
+            -- vim.cmd('highlight Pmenu guibg=none')
+            -- vim.cmd('highlight PmenuExtra guibg=none')
+            -- vim.cmd('highlight FloatBorder guibg=none')
+            -- vim.cmd('highlight NormalFloat guibg=none')
 
             require("blink.cmp").setup({
                 snippets = { preset = "luasnip" },
@@ -31,15 +31,19 @@ return {
                             module = "lazydev.integrations.blink",
                             score_offset = 100,
                         },
+                        -- laravel = {
+                        --     name = "Laravel",
+                        --     module = "laravel.blink_source",
+                        --     enabled = function()
+                        --         return vim.bo.filetype == 'php' or vim.bo.filetype == 'blade'
+                        --     end,
+                        --     kind = "Laravel",
+                        --     score_offset = 1000, -- Highest priority
+                        --     min_keyword_length = 1,
+                        -- },
                         laravel = {
-                            name = "Laravel",
+                            name = "laravel",
                             module = "laravel.blink_source",
-                            enabled = function()
-                                return vim.bo.filetype == 'php' or vim.bo.filetype == 'blade'
-                            end,
-                            kind = "Laravel",
-                            score_offset = 1000, -- Highest priority
-                            min_keyword_length = 1,
                         },
                         cmdline = {
                             min_keyword_length = 2,

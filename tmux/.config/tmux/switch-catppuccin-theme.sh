@@ -15,7 +15,7 @@ tmux -S "$TMUX_SOCKET" source-file "$THEME_DIR/catppuccin_${FLAVOR}_tmux.conf"
 
 case "$FLAVOR" in
   latte)
-    tmux -S "$TMUX_SOCKET" set -g @thm_bg "#eff1f5"
+    tmux -S "$TMUX_SOCKET" set -g @thm_bg "#011526"
     tmux -S "$TMUX_SOCKET" set -g @thm_fg "#4c4f69"
     tmux -S "$TMUX_SOCKET" set -g @thm_rosewater "#dc8a78"
     tmux -S "$TMUX_SOCKET" set -g @thm_flamingo "#dd7878"
@@ -43,7 +43,7 @@ case "$FLAVOR" in
     tmux -S "$TMUX_SOCKET" set -g @thm_crust "#11111b"
     ;;
   mocha)
-    tmux -S "$TMUX_SOCKET" set -g @thm_bg "#1e1e2e"
+    tmux -S "$TMUX_SOCKET" set -g @thm_bg "#011526"
     tmux -S "$TMUX_SOCKET" set -g @thm_fg "#cdd6f4"
     tmux -S "$TMUX_SOCKET" set -g @thm_rosewater "#f5e0dc"
     tmux -S "$TMUX_SOCKET" set -g @thm_flamingo "#f2cdcd"

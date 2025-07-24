@@ -1,0 +1,223 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "mocha0": "#011526",
+    "mocha1": "#2A273F",
+    "mocha2": "#3E3A52",
+    "mocha3": "#585B70",
+    "mocha4": "#F0F0F3",
+    "mocha5": "#E5E5E9",
+    "mocha6": "#F8F8F2",
+    "mocha7": "#F5B0E2",
+    "mocha8": "#F0A4D4",
+    "mocha9": "#E3B78B",
+    "mocha10": "#D9A66A",
+    "mocha11": "#F28FAD",
+    "mocha12": "#F8BBA0",
+    "mocha13": "#F9D68D",
+    "mocha14": "#B6D6A3",
+    "mocha15": "#C6A2D5"
+  },
+  "theme": {
+    "primary": {
+      "dark": "mocha8",
+      "light": "mocha10"
+    },
+    "secondary": {
+      "dark": "mocha9",
+      "light": "mocha9"
+    },
+    "accent": {
+      "dark": "mocha7",
+      "light": "mocha7"
+    },
+    "error": {
+      "dark": "mocha11",
+      "light": "mocha11"
+    },
+    "warning": {
+      "dark": "mocha12",
+      "light": "mocha12"
+    },
+    "success": {
+      "dark": "mocha14",
+      "light": "mocha14"
+    },
+    "info": {
+      "dark": "mocha8",
+      "light": "mocha10"
+    },
+    "text": {
+      "dark": "mocha4",
+      "light": "mocha0"
+    },
+    "textMuted": {
+      "dark": "mocha3",
+      "light": "mocha1"
+    },
+    "background": {
+      "dark": "mocha0",
+      "light": "mocha6"
+    },
+    "backgroundPanel": {
+      "dark": "mocha0",
+      "light": "mocha5"
+    },
+    "backgroundElement": {
+      "dark": "mocha0",
+      "light": "mocha4"
+    },
+    "border": {
+      "dark": "mocha2",
+      "light": "mocha3"
+    },
+    "borderActive": {
+      "dark": "mocha3",
+      "light": "mocha2"
+    },
+    "borderSubtle": {
+      "dark": "mocha2",
+      "light": "mocha3"
+    },
+    "diffAdded": {
+      "dark": "mocha14",
+      "light": "mocha14"
+    },
+    "diffRemoved": {
+      "dark": "mocha11",
+      "light": "mocha11"
+    },
+    "diffContext": {
+      "dark": "mocha3",
+      "light": "mocha3"
+    },
+    "diffHunkHeader": {
+      "dark": "mocha3",
+      "light": "mocha3"
+    },
+    "diffHighlightAdded": {
+      "dark": "mocha14",
+      "light": "mocha14"
+    },
+    "diffHighlightRemoved": {
+      "dark": "mocha11",
+      "light": "mocha11"
+    },
+    "diffAddedBg": {
+      "dark": "#2A273F",
+      "light": "#E5E5E9"
+    },
+    "diffRemovedBg": {
+      "dark": "#2A273F",
+      "light": "#E5E5E9"
+    },
+    "diffContextBg": {
+      "dark": "mocha1",
+      "light": "mocha5"
+    },
+    "diffLineNumber": {
+      "dark": "mocha2",
+      "light": "mocha4"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#2A273F",
+      "light": "#E5E5E9"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#2A273F",
+      "light": "#E5E5E9"
+    },
+    "markdownText": {
+      "dark": "mocha4",
+      "light": "mocha0"
+    },
+    "markdownHeading": {
+      "dark": "mocha8",
+      "light": "mocha10"
+    },
+    "markdownLink": {
+      "dark": "mocha9",
+      "light": "mocha9"
+    },
+    "markdownLinkText": {
+      "dark": "mocha7",
+      "light": "mocha7"
+    },
+    "markdownCode": {
+      "dark": "mocha14",
+      "light": "mocha14"
+    },
+    "markdownBlockQuote": {
+      "dark": "mocha3",
+      "light": "mocha3"
+    },
+    "markdownEmph": {
+      "dark": "mocha12",
+      "light": "mocha12"
+    },
+    "markdownStrong": {
+      "dark": "mocha13",
+      "light": "mocha13"
+    },
+    "markdownHorizontalRule": {
+      "dark": "mocha3",
+      "light": "mocha3"
+    },
+    "markdownListItem": {
+      "dark": "mocha8",
+      "light": "mocha10"
+    },
+    "markdownListEnumeration": {
+      "dark": "mocha7",
+      "light": "mocha7"
+    },
+    "markdownImage": {
+      "dark": "mocha9",
+      "light": "mocha9"
+    },
+    "markdownImageText": {
+      "dark": "mocha7",
+      "light": "mocha7"
+    },
+    "markdownCodeBlock": {
+      "dark": "mocha4",
+      "light": "mocha0"
+    },
+    "syntaxComment": {
+      "dark": "mocha3",
+      "light": "mocha3"
+    },
+    "syntaxKeyword": {
+      "dark": "mocha9",
+      "light": "mocha9"
+    },
+    "syntaxFunction": {
+      "dark": "mocha8",
+      "light": "mocha8"
+    },
+    "syntaxVariable": {
+      "dark": "mocha7",
+      "light": "mocha7"
+    },
+    "syntaxString": {
+      "dark": "mocha14",
+      "light": "mocha14"
+    },
+    "syntaxNumber": {
+      "dark": "mocha15",
+      "light": "mocha15"
+    },
+    "syntaxType": {
+      "dark": "mocha7",
+      "light": "mocha7"
+    },
+    "syntaxOperator": {
+      "dark": "mocha9",
+      "light": "mocha9"
+    },
+    "syntaxPunctuation": {
+      "dark": "mocha4",
+      "light": "mocha0"
+    }
+  }
+}

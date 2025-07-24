@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-USER=$(whoami); export USER
+USER=$(/usr/bin/whoami); export USER
 
 SPACE_INDEX=$2
-CURRENT_SPACE_INDEX="$(yabai -m query --spaces --space | grep index | cut -d ":" -f2 | cut -d "," -f1)"
+CURRENT_SPACE_INDEX="$(/opt/homebrew/bin/yabai -m query --spaces --space | grep index | cut -d ":" -f2 | cut -d "," -f1)"
 
 if [ "$SPACE_INDEX" != "$CURRENT_SPACE_INDEX" ];
 then
   if [ "$1" == 'focus' ];
   then
-    yabai -m space --focus "$SPACE_INDEX"
+    /opt/homebrew/bin/yabai -m space --focus "$SPACE_INDEX"
   fi
 
   if [ "$1" == 'move' ];
     then
-      yabai -m window --space "$SPACE_INDEX" && yabai -m space --focus "$SPACE_INDEX"
+      /opt/homebrew/bin/yabai -m window --space "$SPACE_INDEX" && /opt/homebrew/bin/yabai -m space --focus "$SPACE_INDEX"
     fi
 fi

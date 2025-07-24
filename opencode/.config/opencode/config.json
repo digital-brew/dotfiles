@@ -1,6 +1,7 @@
 {
-  "theme": "ayu",
-  "model": "anthropic/claude-sonnet-4-20250514",
+  "theme": "catppuccin",
   "autoshare": false,
-  "autoupdate": true
+  "autoupdate": true,
+  "model": "anthropic/claude-sonnet-4-20250514",
+  "$schema": "https://opencode.ai/config.json"
 }

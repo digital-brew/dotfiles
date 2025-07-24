@@ -9,4 +9,3 @@ require("config.mason-verify")
 require("config.health-check")
 
 require("core.lazy")
-

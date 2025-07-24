@@ -98,7 +98,8 @@ bindkey '^[[A' atuin-up-search
 bindkey '^[OA' atuin-up-search
 
 if [ -f ~/.env ]; then
-    source ~/dotfiles/.env
+    source ~/.env
+    export $(cat ~/.env | xargs)
 fi
 
 export NVM_DIR="$HOME/.nvm"

@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "helix",
-    delay = 0, -- 300
+    delay = 300,
     icons = {
       rules = false,
       breadcrumb = " ", -- symbol used in the command line area that shows your active key combo
@@ -35,6 +35,7 @@ return {
         { "<leader>x", group = "diagnostics/quickfix (Trouble)" },
         { "<leader>u", group = "Toggle Features" },
         { "<leader>W", group = "Workspace" },
+        { "<leader>'", group = "Laravel" },
         { "[",         group = "prev" },
         { "]",         group = "next" },
         { "g",         group = "goto" },

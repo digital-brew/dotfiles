@@ -7,35 +7,40 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     explorer = { enabled = true },
-    indent = { enabled = true},
+    indent = { enabled = true },
     input = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
     },
     picker = {
+      enabled = true,
       hidden = true,
       ignored = true,
-      enabled = true,
       sources = {
-        files = {
-          hidden = true,
-          ignored = true,
-          exclude = {
-            ".idea/*",
-          },
-        },
+        files = {},
         explorer = {
           exclude = {
-            ".git",
             ".idea",
+            ".git",
             ".DS_Store",
+          },
+          follow_file = true,
+          icons = {
+            tree = {
+              vertical = " ",
+              middle = " ",
+              last = " ",
+            },
+          },
+          jump = {
+            close = true,
           },
           auto_close = true,
           layout = {
             layout = {
+              width = 45,
               position = "right",
-              width = 0.27,
             },
           },
         },
@@ -43,17 +48,9 @@ return {
     },
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = true },
+    scroll = { enabled = false },
     statuscolumn = { enabled = true },
     words = { enabled = true },
-    terminal = {
-      win = {
-        style = "float",
-        relative = "editor",
-        width = 0.98,
-        height = 0.98,
-      },
-    },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications
@@ -130,6 +127,20 @@ return {
       desc = "Find Files",
     },
     {
+      "<leader>fn",
+      function()
+        Snacks.picker.files({ cwd = "~/Notes" })
+      end,
+      desc = "Find Notes",
+    },
+    {
+      "<leader>fs",
+      function()
+        Snacks.picker.files({ cwd = "~/Notes/3. RESOURCES/Code Snippets" })
+      end,
+      desc = "Find Snippet",
+    },
+    {
       "<leader>fg",
       function()
         Snacks.picker.git_files()
@@ -140,7 +151,7 @@ return {
       "<leader>fp",
       function()
         Snacks.picker.projects({
-          dev = {"/Volumes/Work/Projects", "~/dotfiles"}
+          dev = { "~/dotfiles", "/Volumes/Work/Projects" },
         })
       end,
       desc = "Projects",
@@ -433,14 +444,14 @@ return {
     },
     -- Other
     {
-      "<leader>Z",
+      "<leader>z",
       function()
         Snacks.zen()
       end,
       desc = "Toggle Zen Mode",
     },
     {
-      "<leader>z",
+      "<leader>Z",
       function()
         Snacks.zen.zoom()
       end,
@@ -495,6 +506,19 @@ return {
         Snacks.lazygit()
       end,
       desc = "Lazygit",
+    },
+    {
+      "<leader>gk",
+      function()
+        Snacks.terminal("lazysql", {
+          win = {
+            width = 0.8,
+            height = 0.8,
+            border = "rounded",
+          },
+        })
+      end,
+      desc = "Lazysql",
     },
     {
       "<leader>un",

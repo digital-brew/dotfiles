@@ -1,108 +1,192 @@
 return {
   {
     "catppuccin/nvim",
-    priority = 150,
+    priority = 1000,
     name = "catppuccin",
     config = function()
       require("catppuccin").setup({
         flavour = "mocha",
         color_overrides = {
-          mocha = {
-            -- rosewater = "#ea6962",
-            -- flamingo = "#ea6962",
-            -- red = "#ea6962",
-            -- maroon = "#ea6962",
-            -- pink = "#d3869b",
-            -- mauve = "#d3869b",
-            -- peach = "#e78a4e",
-            -- yellow = "#d8a657",
-            -- green = "#a9b665",
-            -- teal = "#89b482",
-            -- sky = "#89b482",
-            -- sapphire = "#89b482",
-            -- blue = "#7daea3",
-            -- lavender = "#7daea3",
-            -- text = "#ebdbb2",
-            -- subtext1 = "#d5c4a1",
-            -- subtext0 = "#bdae93",
-            -- overlay2 = "#011526",
-            -- overlay1 = "#011526",
-            -- overlay0 = "#011526",
-            -- surface2 = "#011526",
-            -- surface1 = "#011526",
-            -- surface0 = "#011526",
-            -- base = "#011526",
-            base2 = "#102A40",
-            -- mantle = "#011526",
-            -- crust = "#011526",
+          all = {
+            rosewater = "#f29668", -- "#ea6962",
+            flamingo = "#f29668", -- "#ea6962",
+            red = "#f26d78", -- "#ea6962",
+            maroon = "#39bae6", -- "#ea6962",
+            pink = "#f07178", -- "#d3869b",
+            mauve = "#d2a6ff", -- "#d3869b",
+            peach = "#ff8f40", -- "#e78a4e",
+            yellow = "#e6b673", -- "#d8a657",
+            green = "#7fd962", -- "#a9b665",
+            teal = "#95e6cb", -- "#89b482",
+            sky = "#50c2ff", -- "#89b482",
+            sapphire = "#95e6cb", -- "#89b482",
+            blue = "#59c2ff", -- "#7daea3",
+            lavender = "#d2a6ff", -- "#7daea3",
+            --   text = -- "#ebdbb2",
+            --   subtext1 = "#d5c4a1",
+            --   subtext0 = "#bdae93",
+            --   overlay2 = "#a89984",
+            --   overlay1 = "#928374",
+            --   overlay0 = "#595959",
+            --   surface2 = "#4d4d4d",
+            --   surface1 = "#404040",
+            --   surface0 = "#292929",
+              base = "#011526",
+              mantle = "#081f31", -- "#191b1c",
+              crust = "#102A40", -- "#141617",
           },
         },
         transparent_background = true,
-        term_colors = true,
         show_end_of_buffer = false,
-        integration_default = false,
-        no_bold = true,
+        integration_default = true,
+        no_bold = false,
         no_italic = true,
         no_underline = true,
         integrations = {
-          barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
-          cmp = true,
+          blink_cmp = {
+            style = "bordered",
+          },
+          snacks = {
+            enabled = true,
+            -- indent_scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
+          },
+          -- barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
+          -- cmp = true,
           gitsigns = true,
-          hop = true,
-          illuminate = { enabled = true },
+          -- hop = true,
+          -- illuminate = { enabled = true },
           native_lsp = { enabled = true, inlay_hints = { background = true } },
-          neogit = true,
-          neotree = true,
+          -- neogit = true,
+          -- neotree = true,
           semantic_tokens = true,
-          snacks = true,
           treesitter = true,
           treesitter_context = true,
-          vimwiki = true,
+          -- vimwiki = true,
           which_key = true,
-          aerial = true,
+          -- aerial = true,
           fidget = true,
           mason = true,
           neotest = true,
           dap_ui = true,
-          telescope = {
-            enabled = true,
-            style = "nvchad",
-          },
+          -- telescope = {
+          --   enabled = true,
+          --   style = "nvchad",
+          -- },
         },
         highlight_overrides = {
           all = function(colors)
             return {
+              StatusLine = { bg = colors.mantle , fg = colors.text },
+              GitBranch = { bg = colors.teal , fg = colors.base },
+              GitBranchLabel = { bg = colors.teal , fg = colors.base},
+              NormalMode = { bg = colors.blue, fg = colors.base },
+              InsertMode = { bg = colors.green, fg = colors.base },
+              VisualMode = { bg = colors.mauve, fg = colors.base },
+              ReplaceMode = { bg = colors.yellow, fg = colors.base },
+              CommandMode = { bg = colors.flamingo, fg = colors.base },
+              TerminalMode = { bg = colors.red, fg = colors.base },
+              LspError = { bg = none, fg = colors.red },
+              LspWarning = { bg = none, fg = colors.peach },
+              LspHint = { bg = none, fg = colors.mauve },
+              LspInfo = { bg = none, fg = colors.blue },
+
+              --       -- Completion menu styling
+              --       Pmenu = { bg = colors.base, fg = colors.text },
+              --       PmenuSel = { bg = colors.base, fg = colors.text },
+              --       PmenuSbar = { bg = colors.base },
+              --       PmenuThumb = { bg = colors.base },
+              --       PmenuExtra = { bg = colors.base, fg = colors.subtext1 },
+              --
+              --       -- Floating windows
+              --       NormalFloat = { bg = colors.base },
+              --       FloatBorder = { bg = colors.base, fg = colors.surface2 },
+              --       FloatTitle = { bg = colors.base, fg = colors.text },
+              --
+              --       -- Blink.cmp specific highlighting
+              --       BlinkCmpMenu = { bg = colors.base, fg = colors.text },
+              --       BlinkCmpMenuBorder = { bg = colors.base, fg = colors.surface2 },
+              --       BlinkCmpMenuSelection = { bg = colors.base, fg = colors.text },
+              --       BlinkCmpScrollBarThumb = { bg = colors.base },
+              --       BlinkCmpScrollBarGutter = { bg = colors.base },
+              --       BlinkCmpLabel = { bg = colors.base, fg = colors.text },
+              --       BlinkCmpLabelDeprecated = { bg = colors.base, fg = colors.overlay0, strikethrough = true },
+              --       BlinkCmpLabelDetail = { bg = colors.base, fg = colors.subtext1 },
+              --       BlinkCmpLabelDescription = { bg = colors.base, fg = colors.subtext1 },
+              --       BlinkCmpKind = { bg = colors.base, fg = colors.peach },
+              --       BlinkCmpSource = { bg = colors.base, fg = colors.overlay1 },
+              --       BlinkCmpGhostText = { fg = colors.overlay0, italic = false },
+              --       BlinkCmpDoc = { bg = colors.base, fg = colors.text },
+              --       BlinkCmpDocBorder = { bg = colors.base, fg = colors.surface2 },
+              --       BlinkCmpDocSeparator = { bg = colors.base, fg = colors.surface1 },
+              --       BlinkCmpDocCursorLine = { bg = colors.base },
+              --       BlinkCmpSignatureHelp = { bg = colors.base, fg = colors.text },
+              --       BlinkCmpSignatureHelpBorder = { bg = colors.base, fg = colors.surface2 },
+              --       BlinkCmpSignatureHelpActiveParameter = { bg = colors.base, fg = colors.peach, bold = true },
+              --
+              --       -- Snacks.nvim picker NvChad style
+              --       SnacksPicker = { bg = colors.base },
+              --       SnacksPickerBorder = { fg = colors.surface0, bg = colors.base },
+              --       SnacksPickerPreview = { bg = colors.base },
+              --       SnacksPickerPreviewBorder = { fg = colors.base, bg = colors.base },
+              --       SnacksPickerPreviewTitle = { fg = colors.base, bg = colors.green },
+              --       SnacksPickerBoxBorder = { fg = colors.base, bg = colors.base },
+              --       SnacksPickerInputBorder = { fg = colors.surface2, bg = colors.base },
+              --       SnacksPickerInputSearch = { fg = colors.text, bg = colors.base },
+              --       SnacksPickerList = { bg = colors.base },
+              --       SnacksPickerListBorder = { fg = colors.base, bg = colors.base },
+              --       SnacksPickerListTitle = { fg = colors.base, bg = colors.base },
+              --
+              --       -- Additional picker elements
+              --       SnacksPickerDir = { fg = colors.blue },
+              --       SnacksPickerFile = { fg = colors.text },
+              --       SnacksPickerMatch = { fg = colors.peach, bold = true },
+              --       SnacksPickerCursor = { bg = colors.surface0, fg = colors.text },
+              --       SnacksPickerSelected = { bg = colors.surface0, fg = colors.text },
+              --       SnacksPickerIcon = { fg = colors.blue },
+              --       SnacksPickerSource = { fg = colors.overlay1 },
+              --       SnacksPickerCount = { fg = colors.overlay1 },
+              --       SnacksPickerFooter = { fg = colors.overlay1 },
+              --       SnacksPickerHeader = { fg = colors.text, bold = true },
+              --       SnacksPickerSpecial = { fg = colors.peach },
+              --       SnacksPickerIndent = { fg = colors.surface1 },
+              --       SnacksPickerMulti = { fg = colors.peach },
+              --       SnacksPickerTitle = { fg = colors.text, bold = true },
+              --       SnacksPickerPrompt = { fg = colors.text },
+              --
+              --       -- Snacks core components
+              --       SnacksNotifierNormal = { bg = colors.base, fg = colors.text },
+              --       SnacksNotifierBorder = { bg = colors.base, fg = colors.surface2 },
+              --       SnacksNotifierTitle = { bg = colors.base, fg = colors.text, bold = true },
+              --       SnacksNotifierIcon = { bg = colors.base, fg = colors.blue },
+              --       SnacksNotifierIconInfo = { bg = colors.base, fg = colors.blue },
+              --       SnacksNotifierIconWarn = { bg = colors.base, fg = colors.yellow },
+              --       SnacksNotifierIconError = { bg = colors.base, fg = colors.red },
+              --
+              --       -- Snacks Dashboard
+              --       SnacksDashboardNormal = { bg = colors.base, fg = colors.text },
+              --       SnacksDashboardDesc = { bg = colors.base, fg = colors.subtext1 },
+              --       SnacksDashboardFile = { bg = colors.base, fg = colors.text },
+              --       SnacksDashboardDir = { bg = colors.base, fg = colors.blue },
+              --       SnacksDashboardFooter = { bg = colors.base, fg = colors.overlay1 },
+              --       SnacksDashboardHeader = { bg = colors.base, fg = colors.text, bold = true },
+              --       SnacksDashboardIcon = { bg = colors.base, fg = colors.blue },
+              --       SnacksDashboardKey = { bg = colors.base, fg = colors.peach },
+              --       SnacksDashboardTerminal = { bg = colors.base, fg = colors.text },
+              --       SnacksDashboardSpecial = { bg = colors.base, fg = colors.peach },
+              --
+              --       -- Snacks Terminal
+              --       SnacksTerminalNormal = { bg = colors.base, fg = colors.text },
+              --       SnacksTerminalBorder = { bg = colors.base, fg = colors.surface2 },
+              --       SnacksTerminalTitle = { bg = colors.base, fg = colors.text, bold = true },
+
               CmpItemMenu = { fg = colors.surface2 },
-              CursorLine = { bg = colors.base },
               CursorLineNr = { fg = colors.text },
-              FloatBorder = { bg = colors.base, fg = colors.surface0 },
+              CursorLine = { bg = colors.crust },
               GitSignsChange = { fg = colors.peach },
               LineNr = { fg = colors.overlay0 },
               LspInfoBorder = { link = "FloatBorder" },
-              -- NeoTreeDirectoryIcon = { fg = colors.subtext1 },
-              -- NeoTreeDirectoryName = { fg = colors.subtext1 },
-              -- NeoTreeFloatBorder = { link = "TelescopeResultsBorder" },
-              -- NeoTreeGitConflict = { fg = colors.red },
-              -- NeoTreeGitDeleted = { fg = colors.red },
-              -- NeoTreeGitIgnored = { fg = colors.overlay0 },
-              -- NeoTreeGitModified = { fg = colors.peach },
-              -- NeoTreeGitStaged = { fg = colors.green },
-              -- NeoTreeGitUnstaged = { fg = colors.red },
-              -- NeoTreeGitUntracked = { fg = colors.green },
-              -- NeoTreeIndent = { fg = colors.surface1 },
-              -- NeoTreeNormal = { bg = colors.mantle },
-              -- NeoTreeNormalNC = { bg = colors.mantle },
-              -- NeoTreeRootName = { fg = colors.subtext1, style = { "bold" } },
-              -- NeoTreeTabActive = { fg = colors.text, bg = colors.mantle },
-              -- NeoTreeTabInactive = { fg = colors.surface2, bg = colors.crust },
-              -- NeoTreeTabSeparatorActive = { fg = colors.mantle, bg = colors.mantle },
-              -- NeoTreeTabSeparatorInactive = { fg = colors.crust, bg = colors.crust },
-              -- NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
-              NormalFloat = { bg = colors.base },
-              Pmenu = { bg = colors.mantle, fg = "" },
-              PmenuSel = { bg = colors.surface0, fg = "" },
               VertSplit = { bg = colors.base, fg = colors.surface0 },
-              WhichKeyFloat = { bg = colors.mantle },
+              WhichKeyFloat = { bg = colors.base },
               YankHighlight = { bg = colors.surface2 },
               FidgetTask = { fg = colors.subtext1 },
               FidgetTitle = { fg = colors.peach },
@@ -193,7 +277,7 @@ return {
               TSStringRegex = { fg = colors.green },
               TSStringSpecial = { link = "SpecialChar" },
               TSSymbol = { fg = colors.text },
-              TSTag = { fg = colors.peach },
+              TSTag = { fg = colors.yellow },
               TSTagAttribute = { fg = colors.green },
               TSTagDelimiter = { fg = colors.green },
               TSText = { fg = colors.green },
@@ -318,260 +402,11 @@ return {
           end,
         },
       })
-      vim.api.nvim_set_hl(0, "NavicIconsOperator", { default = true, bg = "none", fg = "#eedaad" })
-      vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
-      vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      -- vim.api.nvim_set_hl(0, "NavicIconsOperator", { default = true, bg = "none", fg = "#eedaad" })
+      -- vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
+      -- vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 
-      -- vim.api.nvim_command("colorscheme catppuccin")
+      vim.api.nvim_command("colorscheme catppuccin")
     end,
-  },
-  {
-    "sainnhe/gruvbox-material",
-    enabled = true,
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_material_transparent_background = 0
-      vim.g.gruvbox_material_foreground = "original" -- mix
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_ui_contrast = "high"
-      vim.g.gruvbox_material_float_style = "bright"
-      vim.g.gruvbox_material_statusline_style = "original" -- material
-      vim.g.gruvbox_material_cursor = "auto"
-
-      -- vim.g.gruvbox_material_colors_override = { bg0 = '' } -- #0e1010
-      vim.g.gruvbox_material_better_performance = 1
-
-      vim.cmd.colorscheme("gruvbox-material")
-    end,
-  },
-  {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1020, -- make sure to load this before all the other start plugins
-    config = function()
-      -- Default options
-      require("github-theme").setup({
-        options = {
-          -- Compiled file's destination location
-          compile_path = vim.fn.stdpath("cache") .. "/github-theme",
-          compile_file_suffix = "_compiled", -- Compiled file suffix
-          hide_end_of_buffer = true,         -- Hide the '~' character at the end of the buffer for a cleaner look
-          hide_nc_statusline = true,         -- Override the underline style for non-active statuslines
-          transparent = false,               -- Disable setting bg (make neovim's background transparent)
-          terminal_colors = true,            -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = false,              -- Non focused panes set to alternative background
-          module_default = true,             -- Default enable value for modules
-          styles = {                         -- Style to be applied to different syntax groups
-            comments = "NONE",               -- Value is any valid attr-list value `:help attr-list`
-            functions = "NONE",
-            keywords = "NONE",
-            variables = "NONE",
-            conditionals = "NONE",
-            constants = "NONE",
-            numbers = "NONE",
-            operators = "NONE",
-            strings = "NONE",
-            types = "NONE",
-          },
-          inverse = { -- Inverse highlight for different types
-            match_paren = false,
-            visual = false,
-            search = false,
-          },
-          darken = { -- Darken floating windows and sidebar-like windows
-            floats = true,
-            sidebars = {
-              enable = true,
-              list = {}, -- Apply dark background to specific windows
-            },
-          },
-          modules = { -- List of various plugins and additional options
-            -- ...
-          },
-        },
-        palettes = {},
-        specs = {},
-        groups = {},
-      })
-
-      -- setup must be called before loading
-      -- vim.cmd('colorscheme github_light')
-    end,
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      transparent = true,
-      styles = {
-        comments = { italic = false },
-        keywords = { italic = false },
-        functions = {},
-        variables = {},
-        sidebars = "dark",
-        floats = "dark",
-      },
-    },
-    config = function(_, opts)
-      require("tokyonight").setup(opts)
-      -- vim.cmd.colorscheme("tokyonight-moon")
-    end,
-  },
-  {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
-    "oxfist/night-owl.nvim",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- load the colorscheme here
-      require("night-owl").setup()
-      vim.cmd.colorscheme("night-owl")
-    end,
-  },
-  {
-    "Tsuzat/NeoSolarized.nvim",
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      vim.cmd([[ colorscheme NeoSolarized ]])
-    end,
-  },
-  { "EdenEast/nightfox.nvim" },
-  { "ayu-theme/ayu-vim" },
-  { "rose-pine/neovim",             name = "rose-pine" },
-  { "drewtempelmeyer/palenight.vim" },
-  { "ray-x/aurora" },
-  { "Everblush/nvim",               name = "everblush" },
-  {
-    "marko-cerovac/material.nvim",
-    config = function()
-      require("material").setup({
-
-        contrast = {
-          terminal = false,            -- Enable contrast for the built-in terminal
-          sidebars = false,            -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-          floating_windows = false,    -- Enable contrast for floating windows
-          cursor_line = false,         -- Enable darker background for the cursor line
-          lsp_virtual_text = false,    -- Enable contrasted background for lsp virtual text
-          non_current_windows = false, -- Enable contrasted background for non-current windows
-          filetypes = {},              -- Specify which filetypes get the contrasted (darker) background
-        },
-
-        styles = { -- Give comments style such as bold, italic, underline etc.
-          comments = { --[[ italic = true ]]
-          },
-          strings = { --[[ bold = true ]]
-          },
-          keywords = { --[[ underline = true ]]
-          },
-          functions = { --[[ bold = true, undercurl = true ]]
-          },
-          variables = {},
-          operators = {},
-          types = {},
-        },
-
-        plugins = { -- Uncomment the plugins that you use to highlight them
-          -- Available plugins:
-          -- "blink",
-          -- "coc",
-          -- "colorful-winsep",
-          -- "dap",
-          -- "dashboard",
-          -- "eyeliner",
-          -- "fidget",
-          -- "flash",
-          -- "gitsigns",
-          -- "harpoon",
-          -- "hop",
-          -- "illuminate",
-          -- "indent-blankline",
-          -- "lspsaga",
-          -- "mini",
-          -- "neo-tree",
-          -- "neogit",
-          -- "neorg",
-          -- "neotest",
-          -- "noice",
-          -- "nvim-cmp",
-          -- "nvim-navic",
-          -- "nvim-notify",
-          -- "nvim-tree",
-          -- "nvim-web-devicons",
-          -- "rainbow-delimiters",
-          -- "sneak",
-          -- "telescope",
-          -- "trouble",
-          -- "which-key",
-        },
-
-        disable = {
-          colored_cursor = false, -- Disable the colored cursor
-          borders = false,        -- Disable borders between vertically split windows
-          background = false,     -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-          term_colors = false,    -- Prevent the theme from setting terminal colors
-          eob_lines = false,      -- Hide the end-of-buffer lines
-        },
-
-        high_visibility = {
-          lighter = false, -- Enable higher contrast text for lighter style
-          darker = true,   -- Enable higher contrast text for darker style
-        },
-
-        lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
-
-        async_loading = true,      -- Load parts of the theme asynchronously for faster startup (turned on by default)
-
-        custom_colors = nil,       -- If you want to override the default colors, set this to a function
-
-        custom_highlights = {},    -- Overwrite highlights with your own
-      })
-    end,
-  },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1100,
-    opts = function(_, opts)
-      opts.transparent = true
-      opts.italic_comments = true
-      opts.borderless_telescope = false
-    end,
-  },
-  -- modicator (auto color line number based on vim mode)
-  {
-    "mawkler/modicator.nvim",
-    dependencies = "scottmckendry/cyberdream.nvim",
-    init = function()
-      -- These are required for Modicator to work
-      vim.o.cursorline = false
-      vim.o.number = true
-      vim.o.termguicolors = true
-    end,
-    opts = {},
-  },
-  {
-    "uloco/bluloco.nvim",
-    lazy = false,
-    priority = 1000,
-    dependencies = { "rktjmp/lush.nvim" },
-    config = function()
-      -- your optional config goes here, see below.
-    end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
   },
 }

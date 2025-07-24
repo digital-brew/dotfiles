@@ -14,4 +14,4 @@ init-brew:
 	"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 stow:
-	stow aerospace AutoRaise borders github-copilot hammerspoon ideavimrc intelephense npmrc nushell nvim opencode raycast sketchybar skhd starship svim yabai tmux wezterm zellij zshrc
+	stow aerospace AutoRaise borders env hammerspoon ideavimrc npmrc nushell nvim nvim-adibhanna opencode raycast sketchybar skhd starship svim yabai tmux wezterm zellij zshrc

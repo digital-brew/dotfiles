@@ -5,7 +5,7 @@ return {
   },
   config = function()
     require('nvim-notes').setup({
-      vault_path = '~/notes', -- Where to store notes
+      vault_path = '~/Notes', -- Where to store notes
     })
   end,
 }

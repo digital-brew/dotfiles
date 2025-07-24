@@ -34,6 +34,7 @@ brew "fzf"                                        # Command-line fuzzy finder
 brew "gettext"                                    # Well integrated set of translation tools and documentation
 brew "gh"                                         # GitHub command-line tool
 brew "git"                                        # Distributed version control system
+brew "glow"
 brew "groonga"					                          # Fulltext search engine and column store
 brew "htmlq"
 brew "helix"
@@ -46,13 +47,16 @@ brew "jq"                                         # Lightweight and flexible com
 brew "koekeishiya/formulae/yabai"
 brew "kondo"
 brew "lazygit"                                    # Simple terminal UI for git commands
+brew "lazysql"
 brew "lua"                                        # Powerful, efficient, lightweight, embeddable scripting language
+brew "lua-language-server"
 brew "luarocks"                                   # Package manager for the Lua programming language
 brew "lz4"					                              # Extremely Fast Compression algorithm
 brew "lzo"					                              # Real-time data compression library
 brew "mailpit"      
 brew "make"                                       # Utility for directing compilation
 brew "mariadb"                                    # Drop-in replacement for MySQL
+brew "mdcat"
 brew "neovim"                                     # Ambitious Vim-fork focused on extensibility and agility
 brew "nginx"                                      # HTTP and reverse proxy server
 brew "node"                                       # Event-driven I/O framework for the V8 JavaScript engine
@@ -114,7 +118,6 @@ brew "cmake"
 cask "1password"                                  # Password manager that keeps all passwords secure behind one password
 cask "1password-cli"                              # Command-line interface for 1Password
 cask "adobe-creative-cloud"                       # Collection of apps and services for photography, design, video, web, and UX
-# cask "aerospace"                                  # i3-like tiling window manager for macOS
 # cask "alacritty"                                  # GPU-accelerated terminal emulator
 cask "affinity-designer"                          # Professional graphic design software
 cask "affinity-photo"                             # Professional image editing software
@@ -162,6 +165,7 @@ cask "makemkv"                                    # Video format converter (tran
 cask "megacmd"                                    # Command-line access to MEGA services
 cask "megasync"                                   # Syncs files between computers and MEGA Cloud drives
 cask "microsoft-teams"                            # Meet, chat, call, and collaborate in just one place
+cask "nikitabobko/tap/aerospace"                                  # i3-like tiling window manager for macOS
 cask "neohtop"
 cask "ngrok"                                      # Secure introspectable tunnels to localhost
 cask "notion"                                     # App to write, plan, collaborate, and get organised
