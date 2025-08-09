@@ -157,6 +157,7 @@ cask "jellyfin-media-player"                      # Jellyfin desktop client
 # cask "karabiner-elements"                         # Keyboard customiser
 cask "keyboard-maestro"                           # Automation software
 cask "keycastr"                                   # Keystroke visualizer
+cask "kindavim"
 cask "krita"                                      # Free and open-source painting and sketching program
 cask "leader-key"
 cask "loom"                                       # Screen and video recording software

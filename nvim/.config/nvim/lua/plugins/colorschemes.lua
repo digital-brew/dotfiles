@@ -31,9 +31,9 @@ return {
             --   surface2 = "#4d4d4d",
             --   surface1 = "#404040",
             --   surface0 = "#292929",
-              base = "#011526",
-              mantle = "#081f31", -- "#191b1c",
-              crust = "#102A40", -- "#141617",
+            base = "#011526",
+            mantle = "#081f31", -- "#191b1c",
+            crust = "#102A40", -- "#141617",
           },
         },
         transparent_background = true,
@@ -76,9 +76,9 @@ return {
         highlight_overrides = {
           all = function(colors)
             return {
-              StatusLine = { bg = colors.mantle , fg = colors.text },
-              GitBranch = { bg = colors.teal , fg = colors.base },
-              GitBranchLabel = { bg = colors.teal , fg = colors.base},
+              StatusLine = { bg = colors.mantle, fg = colors.text },
+              GitBranch = { bg = colors.teal, fg = colors.base },
+              GitBranchLabel = { bg = colors.teal, fg = colors.base },
               NormalMode = { bg = colors.blue, fg = colors.base },
               InsertMode = { bg = colors.green, fg = colors.base },
               VisualMode = { bg = colors.mauve, fg = colors.base },
@@ -98,10 +98,10 @@ return {
               --       PmenuExtra = { bg = colors.base, fg = colors.subtext1 },
               --
               --       -- Floating windows
-              --       NormalFloat = { bg = colors.base },
-              --       FloatBorder = { bg = colors.base, fg = colors.surface2 },
-              --       FloatTitle = { bg = colors.base, fg = colors.text },
-              --
+                    NormalFloat = { bg = colors.base },
+                    FloatBorder = { bg = colors.base, fg = colors.surface2 },
+                    FloatTitle = { bg = colors.base, fg = colors.text },
+
               --       -- Blink.cmp specific highlighting
               --       BlinkCmpMenu = { bg = colors.base, fg = colors.text },
               --       BlinkCmpMenuBorder = { bg = colors.base, fg = colors.surface2 },

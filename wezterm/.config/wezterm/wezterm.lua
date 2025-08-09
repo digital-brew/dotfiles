@@ -13,22 +13,24 @@ config = {
 	default_prog = { "zsh" },
 	font = wezterm.font_with_fallback({
 		-- { family = "JetBrains Mono",        weight = "Bold" },
-		{ family = "DankMono Nerd Font",    weight = "Bold" },
+		{ family = "DankMono Nerd Font Mono",    weight = "Bold" },
+		-- { family = "UbuntuMono Nerd Font Mono",    weight = "Bold" },
 		{ family = "Symbols NerdFont Mono", scale = 0.75 },
 	}),
-	-- font_rules = {
-	-- 	{
-	-- 		intensity = "Bold",
-	-- 		italic = false,
-	-- 		-- font = wezterm.font({ family = "JetBrains Mono", weight = "Bold" }),
-	-- 		font = wezterm.font({ family = "DankMono Nerd Font Mono", weight = "Bold" }),
-	-- 	},
-	-- },
+	font_rules = {
+		{
+			-- intensity = "Bold",
+			italic = false,
+			-- font = wezterm.font({ family = "JetBrains Mono", weight = "Bold" }),
+			font = wezterm.font({ family = "DankMono Nerd Font Mono", weight = "Bold" }),
+			-- font = wezterm.font({ family = "UbuntuMono Nerd Font Mono", weight = "Bold" }),
+		},
+	},
 	freetype_load_target = "Normal",
 	-- font = wezterm.font("Hack Nerd Font Propo", { weight = "Bold" }),
 	-- font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	--config.font = wezterm.font("MesloLGS Nerd Font Mono")
-	font_size = 18,
+	font_size = 19,
 	line_height = 1.05,
 	freetype_load_flags = "NO_HINTING",
 

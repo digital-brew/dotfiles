@@ -1,7 +1,7 @@
 return {
   {
-    -- "adibhanna/laravel.nvim",
-    dir = "/Volumes/Work/Code/nvim/laravel.nvim",
+    "adibhanna/laravel.nvim",
+    -- dir = "/Volumes/Work/Code/nvim/laravel.nvim",
     ft = { "php", "blade" },
     dependencies = {
       "folke/snacks.nvim", -- Optional: for enhanced UI

@@ -477,29 +477,6 @@ local function mode()
   return string.format(" %s ", modes[current_mode]):upper()
 end
 
-_G.mode = mode
-_G.update_mode_colors = update_mode_colors
-_G.git_branch = safe_git_branch
-_G.lsp_status = safe_lsp_status
-_G.formatter_status = safe_formatter_status
-_G.linter_status = safe_linter_status
-
--- THEN set the statusline
--- vim.opt.statusline = table.concat({
---     "%{v:lua.git_branch()}",       -- Git branch
---     "%y",                          -- File name
---     "%m",                          -- Modified flag
---     "%r",                          -- Readonly flag
---     "%=",                          -- Right align
---     "%{v:lua.linter_status()}",    -- Linter status
---     "%{v:lua.formatter_status()}", -- Formatter status
---     "%{v:lua.lsp_status()}",       -- LSP status
---     " %l:%c",                      -- Line:Column
---     " %p%% ",                      -- Percentage through file
---     "%{v:lua.update_mode_colors()}",          -- Mode color
---     "%{v:lua.mode()}",       -- LSP status
---     "%#Normal#"                    -- Reset color
--- }, " ")
 Statusline = {}
 
 Statusline.active = function()
