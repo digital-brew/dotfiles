@@ -66,7 +66,7 @@ yabai -m rule --add label="1Password" app="^1Password$" manage=off
 yabai -m rule --add label="Yubico Authenticator" app="^Yubico Authenticator$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
 yabai -m rule --add label="Preview" app="^Preview$" manage=off
-yabai -m rule --add label="Alice" app="^Alice$" manage=off
+yabai -m rule --add label="Telegram" app="^Telegram$" manage=off
 yabai -m rule --add label="PhpStorm" app="^PhpStorm$" title="(Commit...|Push...|Welcome to PhpStorm|Settings|Add File to Git|Git|Copy|Delete|Keymap|Plugin Updates|Select Classes To Import|Rename|Move|Rollback Changes|Keyboard Shortcut|CLI Interpreters|Add New Word|Choose Plugins to Install or Enable|Conflicts|Merge Revisions|Edit File Watcher|Macros|Create Blade Component|Create Broadcasting Channel|Create Class|Create Config File|Create Console Command|Create Controller|Create Database Class Factory|Create Database Migration|Create Database Seeder|Create Eloquent Cast|Create Eloquent Scope|Background Image|Backup and Sync|Data Sources and Drivers|Go to Line:Column|Create Event|Create Event Listener|Create Exception|Create Feature Test|Create Form Request|Create Fractal Transformer|Create HTTP Exception|Create Job|Create Json Resource|Create Json Resource Collection|Create Mailable|Create Middleware|New Eloquent Model|Create Module|Create Notification|Create Observer|Create Policy|Create Resource Controller|Create Service Provider|Terminal)" manage=off
 yabai -m rule --add label="Canary Mail" app="^Canary Mail$" title="(Preferences)" manage=off
 yabai -m rule --add label="Alfred" app="^Alfred$" manage=off

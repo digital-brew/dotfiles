@@ -2,6 +2,7 @@ return {
   {
     "adibhanna/laravel.nvim",
     -- dir = "/Volumes/Work/Code/nvim/laravel.nvim",
+    -- dev = true,
     ft = { "php", "blade" },
     dependencies = {
       "folke/snacks.nvim", -- Optional: for enhanced UI
@@ -10,7 +11,7 @@ return {
       require("laravel").setup({
         notifications = false,
         debug = false,
-        keymaps = false,
+        -- keymaps = false,
       })
     end,
   },
@@ -25,4 +26,7 @@ return {
       require("phprefactoring").setup()
     end,
   },
+  -- {
+  --   vim.lsp.enable("laravel_ls"),
+  -- },
 }

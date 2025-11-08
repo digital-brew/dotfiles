@@ -182,6 +182,29 @@ return {
       -- statusline.section_location = function()
       --   return "%2l:%-2v"
       -- end
+
+      local gen_loader = require("mini.snippets").gen_loader
+      -- require("mini.snippets").setup({
+      --   snippets = {
+      --     -- Load custom file with global snippets first (adjust for Windows)
+      --     gen_loader.from_file("~/.config/nvim/snippets/global.json"),
+      --
+      --     -- Load snippets based on current language by reading files from
+      --     -- "snippets/" subdirectories from 'runtimepath' directories.
+      --     gen_loader.from_lang(),
+      --   },
+      --   -- Module mappings. Use `''` (empty string) to disable one.
+      --   mappings = {
+      --     -- Expand snippet at cursor position. Created globally in Insert mode.
+      --     expand = "<C-i>",
+      --
+      --     -- Interact with default `expand.insert` session.
+      --     -- Created for the duration of active session(s)
+      --     jump_next = "<C-l>",
+      --     jump_prev = "<C-h>",
+      --     stop = "<C-c>",
+      --   },
+      -- })
     end,
   },
 
@@ -196,6 +219,7 @@ return {
     "fladson/vim-kitty",
     "MunifTanjim/nui.nvim",
   },
+
   {
     "nvchad/showkeys",
     cmd = "ShowkeysToggle",
@@ -216,4 +240,108 @@ return {
       },
     },
   },
+
+  {
+    "whatyouhide/vim-textobj-xmlattr",
+    dependencies = "kana/vim-textobj-user",
+  },
+
+  {
+    "mg979/vim-visual-multi",
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "catppuccin",
+          section_separators = "",
+          component_separators = "",
+          -- section_separators = { left = '', right = '' },
+          -- component_separators = { left = '', right = '' },
+          icons_enabled = true,
+        },
+        dependencies = {
+          "nvim-tree/nvim-web-devicons",
+        },
+        sections = {
+          lualine_a = { "mode" },
+          -- lualine_b = { "diagnostics" },
+          lualine_b = { "diagnostics", "filename" },
+          lualine_c = {},
+          -- lualine_c = { { "filename", path = 1 } },
+          lualine_x = { "lsp_status", "filetype" },
+          lualine_y = { "branch", "diff", "progress" },
+          lualine_z = { "location" },
+        },
+      })
+    end,
+  },
+
+  -- {
+  --   "vimpostor/vim-tpipeline",
+  --   config = function()
+  --     vim.g.tpipeline_autoembed = 1
+  --     vim.g.tpipeline_restore = 1
+  --     vim.g.tpipeline_clearstl = 1
+  --     vim.g.tpipeline_map_keys = 1
+  --     vim.g.tpipeline_use_default_keybindings = 0
+  --     vim.g.tpipeline_use_default_menu = 0
+  --     vim.g.tpipeline_show_cmd = 1
+  --     vim.g.tpipeline_show_context = 1
+  --     vim.g.tpipeline_show_keybindings = 1
+  --     vim.g.tpipeline_show_menu = 1
+  --   end,
+  -- },
+  -- {
+  --   "chrisgrieser/nvim-origami",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     foldtext = {
+  --       lineCount = {
+  --         template = " %d",
+  --       },
+  --     },
+  --   },
+  --   init = function()
+  --     vim.opt.foldlevel = 99
+  --     vim.opt.foldlevelstart = 99
+  --
+  --     local fold_util = require("utils.code-folds")
+  --
+  --     vim.keymap.set("n", "za", "za", { noremap = true, silent = true })
+  --     vim.keymap.set("n", "[[", fold_util.goto_previous_fold, { noremap = true, silent = true })
+  --     vim.keymap.set("n", "]]", "zj", { noremap = true, silent = true })
+  --
+  --     vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "LspAttach" }, {
+  --       callback = function(opts)
+  --         fold_util.update_ranges(opts.buf)
+  --       end,
+  --     })
+  --
+  --     local last_row = nil
+  --     vim.api.nvim_create_autocmd("CursorMoved", {
+  --       callback = function(opts)
+  --         local row = vim.api.nvim_win_get_cursor(0)[1]
+  --         if row ~= last_row then
+  --           last_row = row
+  --
+  --           fold_util.update_current_fold(row, opts.buf)
+  --         end
+  --       end,
+  --     })
+  --
+  --     vim.api.nvim_create_autocmd({ "BufUnload", "BufWipeout" }, {
+  --       callback = function(opts)
+  --         fold_util.clear(opts.buf)
+  --       end,
+  --     })
+  --
+  --     vim.opt.statuscolumn = "%!v:lua.StatusCol()"
+  --     function _G.StatusCol()
+  --       return fold_util.statuscol()
+  --     end
+  --   end,
+  -- },
 }

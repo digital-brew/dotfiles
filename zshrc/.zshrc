@@ -118,6 +118,8 @@ export PATH=/usr/local/mysql/bin:/usr/local/sbin:/Users/moonlander/.nvm/versions
 # PHP_VERSION='8.4'
 # export PATH="/usr/local/opt/php@$PHP_VERSION/bin:$PATH"
 # export PATH="/usr/local/opt/php@$PHP_VERSION/sbin:$PATH"
+export PATH=$PATH:/usr/homebrew/bin/php
+
 # Added by Windsurf
 export PATH="/Users/moonlander/.codeium/windsurf/bin:$PATH"
 
@@ -129,6 +131,9 @@ export CPPFLAGS="-I/usr/local/opt/icu4c@76/include"
 export PKG_CONFIG_PATH="/usr/local/opt/icu4c@76/lib/pkgconfig"
 export PATH=/usr/local/opt/icu4c@76/sbin:/usr/local/opt/icu4c@76/bin:/Users/moonlander/.codeium/windsurf/bin:/usr/local/opt/php@8.4/sbin:/usr/local/opt/php@8.4/bin:/usr/local/mysql/bin:/usr/local/sbin:/Users/moonlander/.nvm/versions/node/v21.7.1/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/moonlander/.composer/vendor/bin:/Users/moonlander/.composer/vendor/bin:/usr/local/share/virtualenv/bin:/Users/moonlander/.composer/vendor/bin:/opt/homebrew/bin
 
+export PATH=$(brew --prefix)/bin:$PATH
+
+export ZK_NOTEBOOK_DIR=$HOME/Notes
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -212,6 +217,10 @@ alias tdp='trellis deploy production'
  
 alias bbi='brew bundle install && brew link --overwrite php@8.4'
 
+alias nd='npm run dev'
+alias nb='npm run build'
+alias tds='trellis deploy staging'
+alias tdp='trellis deploy production'
 alias v='nvim'
 
 ssh:list() {
@@ -244,6 +253,11 @@ nv() {
   NVIM_APPNAME=$(basename $config) nvim $@
 }
 
+export TERM=xterm-256color
+
 source $HOME/dotfiles/scripts/beacon/variables
 source $HOME/dotfiles/scripts/beacon/helpers
 source $HOME/dotfiles/scripts/beacon/beacon
+export PATH="$HOME/.local/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin:$HOME/go/bin"

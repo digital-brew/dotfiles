@@ -1,5 +1,23 @@
 {
   "$schema": "https://opencode.ai/theme.json",
+  "defs_1": {
+    "mocha0": "#00141a",
+    "mocha1": "#012b36",
+    "mocha2": "#063642",
+    "mocha3": "#586e75",
+    "mocha4": "#F0F0F3",
+    "mocha5": "#E5E5E9",
+    "mocha6": "#F8F8F2",
+    "mocha7": "#F5B0E2",
+    "mocha8": "#F0A4D4",
+    "mocha9": "#E3B78B",
+    "mocha10": "#D9A66A",
+    "mocha11": "#F28FAD",
+    "mocha12": "#F8BBA0",
+    "mocha13": "#F9D68D",
+    "mocha14": "#B6D6A3",
+    "mocha15": "#C6A2D5"
+  },
   "defs": {
     "mocha0": "#011526",
     "mocha1": "#2A273F",

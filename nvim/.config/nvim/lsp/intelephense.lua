@@ -20,8 +20,17 @@ return {
     vim.lsp.protocol.make_client_capabilities(),
     blink.get_lsp_capabilities()
   ),
+  diagnostics = {},
   settings = {
     intelephense = {
+      -- environment = {
+      --   includePaths = {
+      --     "/Volumes/Work/Projects/"
+      --   }
+      -- }, 
+      telemetry = {
+        enabled = false,
+      },
       stubs = {
         "bcmath",
         "bz2",

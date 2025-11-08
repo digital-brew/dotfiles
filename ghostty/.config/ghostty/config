@@ -1,0 +1,30 @@
+# font-family = "SF Mono"
+# font-family = "JetBrains Mono"
+# font-family = "DankMono Nerd Font Mono"
+font-family = "Dank Mono"
+# font-family = "MesloLGS Nerd Font Mono"
+# font-style = Medium
+# font-style-bold = SemiBold
+# font-synthetic-style = bold
+# font-thicken = true
+# font-thicken-strength = 1
+# theme = catppuccin-mocha
+font-size = 20
+# background-blur-radius = 20
+mouse-hide-while-typing = true
+window-decoration = auto
+macos-titlebar-style = hidden
+# keybind = global:cmd+/=toggle_quick_terminal
+macos-option-as-alt = false
+# background-opacity = 0.6
+adjust-cell-height = 10%
+window-padding-balance = true
+window-vsync = true
+
+
+# background-blur-radius = 20 
+# background-opacity = 0.92
+cursor-style = block
+cursor-style-blink = false 
+shell-integration-features = no-cursor
+background = #011526
